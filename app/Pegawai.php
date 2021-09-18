@@ -227,7 +227,7 @@ class Pegawai extends Utility {
                 $responseBuilder['response_result'] = $query->rowCount();
                 $responseBuilder['response_message'] = 'Login berhasil';
                 $responseBuilder['response_token'] = $jwt;
-                $responseBuilder['response_data'] = $read;
+                $responseBuilder['response_data'] = $read[0];
 
             } else {
                 $responseBuilder['response_result'] = 0;

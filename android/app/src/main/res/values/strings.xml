@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Aplikasi Pelaporan</string>
+    <string name="app_inst">DISDUKCAPIL Kota Medan</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+    <string name="caption_login_email">Username</string>
+    <string name="caption_login_password">Password</string>
+    <string name="caption_login_btn_login">Sign In</string>
+    <string name="caption_login_btn_forget">Forgot Password?</string>
+    <string name="capil_caption">DISDUKPAIL</string>
+    <string name="powered_by">Rate us at</string>
+
+    <string name="backward">&#xf060;</string>
+    <string name="forward">&#xf061;</string>
+</resources>

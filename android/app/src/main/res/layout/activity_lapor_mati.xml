@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_background">
+
+    <include layout="@layout/footer" />
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="700dp"
+        tools:ignore="MissingConstraints">
+        <RelativeLayout
+            android:layout_width="100dp"
+            android:layout_height="160dp"
+            android:background="@color/header"
+            android:layout_alignParentEnd="true" />
+
+        <RelativeLayout
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="-20dp"
+            android:background="@drawable/misc_rounded" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_marginTop="-200dp"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/header"
+        tools:ignore="MissingConstraints">
+
+        <RelativeLayout
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/login_ball" />
+        <LinearLayout
+            android:id="@+id/btn_back"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="UselessParent">
+            <TextView
+                android:gravity="center"
+                android:textColor="#fff"
+                android:fontFamily="@font/fa_solid_900"
+                android:text="@string/backward"
+                android:textSize="8pt"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <TextView
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:textColor="#fff"
+                android:fontFamily="@font/montserrat_extra_bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="textStart"
+                android:textSize="8pt"
+                android:text="Laporan Kematian" />
+        </LinearLayout>
+    </RelativeLayout>
+
+
+
+
+
+    <RelativeLayout
+        android:paddingTop="70dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
+        <LinearLayout
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="40dp"
+            android:background="@drawable/ui_card"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:ignore="UselessParent">
+
+                <RelativeLayout
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="260dp"
+                    android:layout_marginStart="20dp"
+                    android:background="@drawable/login_ball" />
+
+                <RelativeLayout
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="330dp"
+                    android:layout_marginEnd="-120dp"
+                    android:background="@drawable/login_ball" />
+                <ScrollView
+                    android:layout_margin="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:layout_marginTop="15dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="40dp"
+                        android:paddingTop="30dp"
+                        android:paddingStart="5dp"
+                        android:paddingEnd="5dp"
+                        android:paddingBottom="30dp"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+
+
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:paddingStart="10dp"
+                                android:paddingEnd="10dp"
+                                android:text="NIK"
+                                android:fontFamily="@font/montserrat_extra_bold"
+                                android:textColor="#000"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                            <EditText
+                                android:id="@+id/lapor_mati_nik"
+                                android:textColor="#282828"
+                                android:textColorHint="#808080"
+                                android:paddingStart="20dp"
+                                android:paddingEnd="20dp"
+                                android:paddingTop="10dp"
+                                android:paddingBottom="10dp"
+                                android:hint="Nomor Induk Kependudukan"
+                                android:fontFamily="@font/greycliff"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/ui_edittext"
+                                android:textSize="13sp"
+                                android:inputType="number"
+                                android:importantForAutofill="no" />
+                        </LinearLayout>
+
+
+
+
+
+                        <LinearLayout
+                            android:layout_marginTop="20dp"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:paddingStart="10dp"
+                                android:paddingEnd="10dp"
+                                android:textColor="#000"
+                                android:text="Nama Lengkap"
+                                android:fontFamily="@font/montserrat_extra_bold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                            <EditText
+                                android:id="@+id/lapor_mati_nama"
+                                android:textColor="#282828"
+                                android:textColorHint="#808080"
+                                android:paddingStart="20dp"
+                                android:paddingEnd="20dp"
+                                android:paddingTop="10dp"
+                                android:paddingBottom="10dp"
+                                android:hint="Nama Penduduk"
+                                android:fontFamily="@font/greycliff"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/ui_edittext"
+                                android:textSize="13sp"
+                                android:inputType="text"
+                                android:importantForAutofill="no" />
+                        </LinearLayout>
+
+
+
+
+                        <LinearLayout
+                            android:layout_marginTop="20dp"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:paddingStart="10dp"
+                                android:paddingEnd="10dp"
+                                android:textColor="#000"
+                                android:text="Tempat Lahir"
+                                android:fontFamily="@font/montserrat_extra_bold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                            <EditText
+                                android:id="@+id/lapor_mati_tempat_lahir"
+                                android:textColor="#282828"
+                                android:textColorHint="#808080"
+                                android:paddingStart="20dp"
+                                android:paddingEnd="20dp"
+                                android:paddingTop="10dp"
+                                android:paddingBottom="10dp"
+                                android:hint="Tempat Lahir"
+                                android:fontFamily="@font/greycliff"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/ui_edittext"
+                                android:textSize="13sp"
+                                android:inputType="text"
+                                android:importantForAutofill="no" />
+                        </LinearLayout>
+
+
+
+                        <LinearLayout
+                            android:layout_marginTop="20dp"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:paddingStart="10dp"
+                                android:paddingEnd="10dp"
+                                android:textColor="#000"
+                                android:text="Tanggal Lahir"
+                                android:fontFamily="@font/montserrat_extra_bold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                            <EditText
+                                android:id="@+id/lapor_mati_tanggal_lahir"
+                                android:textColor="#282828"
+                                android:textColorHint="#808080"
+                                android:paddingStart="20dp"
+                                android:paddingEnd="20dp"
+                                android:paddingTop="10dp"
+                                android:paddingBottom="10dp"
+                                android:hint="Tanggal Lahir"
+                                android:fontFamily="@font/greycliff"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/ui_edittext"
+                                android:textSize="13sp"
+                                android:inputType="text"
+                                android:importantForAutofill="no" />
+                        </LinearLayout>
+
+
+
+
+
+
+                        <LinearLayout
+                            android:layout_marginTop="20dp"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:paddingStart="10dp"
+                                android:paddingEnd="10dp"
+                                android:textColor="#000"
+                                android:text="Tempat Meninggal"
+                                android:fontFamily="@font/montserrat_extra_bold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                            <EditText
+                                android:id="@+id/lapor_mati_tempat_mati"
+                                android:textColor="#282828"
+                                android:textColorHint="#808080"
+                                android:paddingStart="20dp"
+                                android:paddingEnd="20dp"
+                                android:paddingTop="10dp"
+                                android:paddingBottom="10dp"
+                                android:hint="Tempat Meninggal"
+                                android:fontFamily="@font/greycliff"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/ui_edittext"
+                                android:textSize="13sp"
+                                android:inputType="text"
+                                android:importantForAutofill="no" />
+                        </LinearLayout>
+
+
+
+
+
+                        <LinearLayout
+                            android:layout_marginTop="20dp"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:paddingStart="10dp"
+                                android:paddingEnd="10dp"
+                                android:textColor="#000"
+                                android:text="Tanggal Meninggal"
+                                android:fontFamily="@font/montserrat_extra_bold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                            <EditText
+                                android:id="@+id/lapor_mati_tanggal_mati"
+                                android:textColor="#282828"
+                                android:textColorHint="#808080"
+                                android:paddingStart="20dp"
+                                android:paddingEnd="20dp"
+                                android:paddingTop="10dp"
+                                android:paddingBottom="10dp"
+                                android:hint="Tanggal Meninggal"
+                                android:fontFamily="@font/greycliff"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/ui_edittext"
+                                android:textSize="13sp"
+                                android:inputType="text"
+                                android:importantForAutofill="no" />
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_marginTop="20dp"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:paddingStart="10dp"
+                                android:paddingEnd="10dp"
+                                android:textColor="#000"
+                                android:text="Jam Meninggal"
+                                android:fontFamily="@font/montserrat_extra_bold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                            <EditText
+                                android:id="@+id/lapor_jam_mati"
+                                android:textColor="#282828"
+                                android:textColorHint="#808080"
+                                android:paddingStart="20dp"
+                                android:paddingEnd="20dp"
+                                android:paddingTop="10dp"
+                                android:paddingBottom="10dp"
+                                android:hint="Jam Meninggal"
+                                android:fontFamily="@font/greycliff"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/ui_edittext"
+                                android:textSize="13sp"
+                                android:inputType="text"
+                                android:importantForAutofill="no" />
+                        </LinearLayout>
+
+
+
+
+                        <LinearLayout
+                            android:layout_marginTop="20dp"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:paddingStart="10dp"
+                                android:paddingEnd="10dp"
+                                android:textColor="#000"
+                                android:text="Nama Keluarga"
+                                android:fontFamily="@font/montserrat_extra_bold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                            <EditText
+                                android:id="@+id/lapor_mati_nama_keluarga"
+                                android:textColor="#282828"
+                                android:textColorHint="#808080"
+                                android:paddingStart="20dp"
+                                android:paddingEnd="20dp"
+                                android:paddingTop="10dp"
+                                android:paddingBottom="10dp"
+                                android:hint="Nama Keluarga"
+                                android:fontFamily="@font/greycliff"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/ui_edittext"
+                                android:textSize="13sp"
+                                android:inputType="text"
+                                android:importantForAutofill="no" />
+                        </LinearLayout>
+
+
+
+                        <LinearLayout
+                            android:layout_marginTop="20dp"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:paddingStart="10dp"
+                                android:paddingEnd="10dp"
+                                android:textColor="#000"
+                                android:text="No. Kontak Keluarga"
+                                android:fontFamily="@font/montserrat_extra_bold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                            <EditText
+                                android:id="@+id/lapor_mati_kontak_keluarga"
+                                android:textColor="#282828"
+                                android:textColorHint="#808080"
+                                android:paddingStart="20dp"
+                                android:paddingEnd="20dp"
+                                android:paddingTop="10dp"
+                                android:paddingBottom="10dp"
+                                android:hint="No. Kontak Keluarga"
+                                android:fontFamily="@font/greycliff"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/ui_edittext"
+                                android:textSize="13sp"
+                                android:inputType="text"
+                                android:importantForAutofill="no" />
+                        </LinearLayout>
+
+
+
+
+                        <RelativeLayout
+                            android:layout_marginTop="20dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <android.widget.Button
+                                android:id="@+id/btn_laporkan_mati"
+                                android:layout_marginTop="30dp"
+                                android:layout_marginBottom="30dp"
+                                android:fontFamily="@font/greycliff"
+                                android:background="@drawable/ui_button_primary"
+                                android:text="Laporkan"
+                                android:layout_alignParentEnd="true"
+                                android:gravity="center"
+                                android:layout_gravity="end"
+                                android:textColor="#fff"
+                                android:paddingStart="40dp"
+                                android:paddingEnd="40dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                        </RelativeLayout>
+
+
+
+
+                    </LinearLayout>
+                </ScrollView>
+            </RelativeLayout>
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
