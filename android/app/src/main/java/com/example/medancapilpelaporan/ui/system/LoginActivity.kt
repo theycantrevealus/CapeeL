@@ -2,19 +2,23 @@ package com.example.medancapilpelaporan.ui.system
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.medancapilpelaporan.Config
 import com.example.medancapilpelaporan.MainActivity
+import com.example.medancapilpelaporan.R
 import com.example.medancapilpelaporan.databinding.ActivityLoginBinding
 import com.example.medancapilpelaporan.utils.general.InputUtils
 import com.example.medancapilpelaporan.utils.general.RetroInstance
 import com.example.medancapilpelaporan.utils.general.SessionManager
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
+import io.github.muddz.styleabletoast.StyleableToast
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -64,8 +68,24 @@ class LoginActivity: AppCompatActivity() {
         @Expose
         private val response_data: UserData ?= null
 
+        @SerializedName("response_result")
+        @Expose
+        private val response_result: Int = 0
+
+        @SerializedName("response_message")
+        @Expose
+        private val response_message: String = ""
+
         fun getResponseData(): UserData? {
             return response_data
+        }
+
+        fun getResponseResult(): Int {
+            return response_result
+        }
+
+        fun getResponseMessage(): String {
+            return response_message
         }
     }
 
@@ -126,26 +146,28 @@ class LoginActivity: AppCompatActivity() {
 
         retIn.signin("login", email, password).enqueue(object : Callback<Login> {
             override fun onFailure(call: Call<Login>, t: Throwable) {
-                Log.e("TANAKA","Failure")
+                val message: String? = t.message
+                Log.e("TANAKA", message.toString())
             }
 
             override fun onResponse(call: Call<Login>, response: Response<Login>) {
-                //Toast.makeText(parentFragment, "Kode : " + response.code().toString(), Toast.LENGTH_LONG).show()
-                Log.e("TANAKA", "Test")
-                Log.e("TANAKA", response.code().toString())
-
                 if (response.code() == 200) {
                     var dataset: Login? = response.body()
-                    sessionManager.saveSPString("__UID__", dataset?.getResponseData()?.getUID())
-                    sessionManager.saveSPString("__NAME__", dataset?.getResponseData()?.getNama())
-                    sessionManager.saveSPString("__USERNAME__", dataset?.getResponseData()?.getUserName())
-                    sessionManager.saveSPString("__HP__", dataset?.getResponseData()?.getContact())
-                    sessionManager.saveSPString("__EMAIL__", dataset?.getResponseData()?.getEmail())
-                    sessionManager.saveSPString("__PASSWORD__", dataset?.getResponseData()?.getPassword())
+                    if(dataset?.getResponseResult()!! > 0) {
+                        sessionManager.saveSPString("__UID__", dataset?.getResponseData()?.getUID())
+                        sessionManager.saveSPString("__NAME__", dataset?.getResponseData()?.getNama())
+                        sessionManager.saveSPString("__USERNAME__", dataset?.getResponseData()?.getUserName())
+                        sessionManager.saveSPString("__HP__", dataset?.getResponseData()?.getContact())
+                        sessionManager.saveSPString("__EMAIL__", dataset?.getResponseData()?.getEmail())
+                        sessionManager.saveSPString("__PASSWORD__", dataset?.getResponseData()?.getPassword())
 
-                    if (!sessionManager.uID.equals("") || sessionManager.uID?.isEmpty()!!) {
-                        val mIntent = Intent(context, MainActivity::class.java)
-                        startActivity(mIntent)
+                        if (!sessionManager.uID.equals("") || sessionManager.uID?.isEmpty()!!) {
+                            val mIntent = Intent(context, MainActivity::class.java)
+                            startActivity(mIntent)
+                            finish()
+                        }
+                    } else {
+                        StyleableToast.makeText(context, dataset.getResponseMessage(), Toast.LENGTH_LONG, R.style.toast_warning).show();
                     }
                 } else if (response.code() == 400) {
                     //

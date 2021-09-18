@@ -26,7 +26,7 @@ class RetroInstance {
                         chain ->
                     val newRequest = chain.request().newBuilder().addHeader("Authorization", "Bearer " + token).build()
                     val response =  chain.proceed(newRequest)
-                    Log.e("TANAKA", "GLOBAL : " + response.body!!.string())
+                    //Log.e("TANAKA", "GLOBAL : " + response.body!!.string())
                     response
                 }
             }.build()
@@ -34,7 +34,7 @@ class RetroInstance {
             return Retrofit.Builder()
                 .baseUrl(target)
                 .client(client)
-                .addConverterFactory(ScalarsConverterFactory.create())
+                //.addConverterFactory(ScalarsConverterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
         }
