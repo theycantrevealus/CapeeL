@@ -120,6 +120,9 @@ class Pegawai extends Utility {
             case 'update_unit_jabatan':
                 return self::update_unit_jabatan($parameter);
                 break;
+            case 'update_profile':
+                return self::update_profile($parameter);
+                break;
             default:
                 return array();
                 break;
@@ -330,6 +333,61 @@ class Pegawai extends Utility {
         return $data;
     }
 
+    private function update_profile($parameter) {
+        $Authorization = new Authorization();
+        $UserData = $Authorization->readBearerToken($parameter['access_token']);
+
+        /*$data = self::$query->select('pegawai', array(
+            'password'
+        ))
+            ->where(array(
+                'pegawai.uid' => '= ?'
+            ), array(
+                $UserData['data']->uid
+            ))
+            ->execute();
+        if(!empty($parameter['password_old']) && $parameter['password_old'] !== '') {
+            if(password_verify($parameter['password_old'], $data['response_data'][0]['password'])) {
+                $update_password = self::edit_password(array(
+                    'old' =>
+                ));
+            } else {
+                //
+            }    
+        }*/
+
+        if(!empty($parameter['old']) && $parameter['old'] !== '') {
+            $update_password = self::edit_password($parameter);
+        }
+        
+
+
+        $worker = self::$query->update('pegawai', array(
+            'email' => $parameter ['email'],
+            'nama' => $parameter ['nama'],
+            'no_handphone' => $parameter ['no_handphone']
+        ))
+            ->where(array(
+                'pegawai.uid' => '= ?'
+            ), array(
+                $UserData['data']->uid
+            ))
+            ->execute();
+
+        $data = self::$query->select('pegawai', array(
+            'uid', 'nama', 'email', 'no_handphone'
+        ))
+            ->where(array(
+                'pegawai.uid' => '= ?'
+            ), array(
+                $UserData['data']->uid
+            ))
+            ->execute();
+        $data['password'] = $update_password;
+
+        return $data;
+    }
+
     private function update_unit_jabatan($parameter) {
         $Authorization = new Authorization();
         $UserData = $Authorization->readBearerToken($parameter['access_token']);
@@ -510,8 +568,19 @@ class Pegawai extends Utility {
     private function edit_password($parameter) {
         $Authorization = new Authorization();
         $UserData = $Authorization->readBearerToken($parameter['access_token']);
+
+        $checkOld = self::$query->select('pegawai', array(
+            'password'
+        ))
+            ->where(array(
+                'pegawai.uid' => '= ?'
+            ), array(
+                $UserData['data']->uid
+            ))
+            ->execute();
+
         $responseBuilder = array();
-        if(password_verify($parameter['old'], $UserData['data']->password)) {
+        if(password_verify($parameter['old'], $checkOld['response_data'][0]['password'])) {
             $data = self::$query->update('pegawai', array(
                 'password' => password_hash($parameter['new'], PASSWORD_DEFAULT)
             ))

@@ -66,6 +66,12 @@ class SessionManager {
             foto = value
         }
 
+    var token: String?
+        get() = sp.getString("__TOKEN__", "")
+        set(value) {
+            token = value
+        }
+
     fun logout() {
         spEditor.clear().commit()
     }

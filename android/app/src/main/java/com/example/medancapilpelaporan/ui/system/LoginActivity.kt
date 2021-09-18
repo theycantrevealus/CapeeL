@@ -37,6 +37,11 @@ class LoginActivity: AppCompatActivity() {
 
         sessionManager = SessionManager(this)
 
+        if(!sessionManager.uID.isNullOrEmpty() && !sessionManager.uID.equals("")){
+            val mIntent = Intent(this, MainActivity::class.java)
+            startActivity(mIntent)
+            finish()
+        }
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -68,6 +73,10 @@ class LoginActivity: AppCompatActivity() {
         @Expose
         private val response_data: UserData ?= null
 
+        @SerializedName("response_token")
+        @Expose
+        private val response_token: String ?= null
+
         @SerializedName("response_result")
         @Expose
         private val response_result: Int = 0
@@ -86,6 +95,10 @@ class LoginActivity: AppCompatActivity() {
 
         fun getResponseMessage(): String {
             return response_message
+        }
+
+        fun getResponseToken(): String? {
+            return response_token
         }
     }
 
@@ -154,12 +167,14 @@ class LoginActivity: AppCompatActivity() {
                 if (response.code() == 200) {
                     var dataset: Login? = response.body()
                     if(dataset?.getResponseResult()!! > 0) {
-                        sessionManager.saveSPString("__UID__", dataset?.getResponseData()?.getUID())
-                        sessionManager.saveSPString("__NAME__", dataset?.getResponseData()?.getNama())
-                        sessionManager.saveSPString("__USERNAME__", dataset?.getResponseData()?.getUserName())
-                        sessionManager.saveSPString("__HP__", dataset?.getResponseData()?.getContact())
-                        sessionManager.saveSPString("__EMAIL__", dataset?.getResponseData()?.getEmail())
-                        sessionManager.saveSPString("__PASSWORD__", dataset?.getResponseData()?.getPassword())
+                        Log.e("TANAKA", dataset.getResponseData()?.getUID().toString())
+                        sessionManager.saveSPString("__UID__", dataset.getResponseData()?.getUID())
+                        sessionManager.saveSPString("__NAMA__", dataset.getResponseData()?.getNama())
+                        sessionManager.saveSPString("__USERNAME__", dataset.getResponseData()?.getUserName())
+                        sessionManager.saveSPString("__HP__", dataset.getResponseData()?.getContact())
+                        sessionManager.saveSPString("__EMAIL__", dataset.getResponseData()?.getEmail())
+                        sessionManager.saveSPString("__PASSWORD__", dataset.getResponseData()?.getPassword())
+                        sessionManager.saveSPString("__TOKEN__", dataset.getResponseToken())
 
                         if (!sessionManager.uID.equals("") || sessionManager.uID?.isEmpty()!!) {
                             val mIntent = Intent(context, MainActivity::class.java)

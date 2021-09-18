@@ -11,6 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.medancapilpelaporan.databinding.FragmentHomeBinding
 import com.example.medancapilpelaporan.ui.lapor.LaporMatiActivity
+import com.example.medancapilpelaporan.ui.profile.ProfileEditActivity
 
 class HomeFragment : Fragment() {
 
@@ -40,9 +41,10 @@ class HomeFragment : Fragment() {
 
 
 
-
-
-
+        binding.profileImage.setOnClickListener(View.OnClickListener {
+            val mIntent = Intent(context, ProfileEditActivity::class.java)
+            startActivity(mIntent)
+        })
 
         binding.menuLaporMati.setOnClickListener(View.OnClickListener {
             val mIntent = Intent(context, LaporMatiActivity::class.java)

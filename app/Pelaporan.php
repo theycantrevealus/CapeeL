@@ -29,6 +29,51 @@ class Pelaporan extends Utility {
         }
     }
 
+    public function __GET__($parameter = array()) {
+        switch ($parameter[1]) {
+            case 'list':
+                return array();
+                break;
+            default:
+                return self::get_my_pelaporan($parameter);
+        }
+    }
+
+    private function get_my_pelaporan($parameter) {
+        $Authorization = new Authorization();
+        $UserData = $Authorization->readBearerToken($parameter['access_token']);
+
+        $data = self::$query->select('lapor', array(
+            'id', 'id_jenis', 'id_kecamatan', 'id_kelurahan'
+        ))
+            ->where(array(
+                'lapor.uid_pegawai' => '= ?',
+                'AND',
+                'lapor.deleted_at' => 'IS NULL'
+            ), array(
+                $UserData['data']->uid
+            ))
+            ->execute();
+        foreach($data['response_data'] as $key => $value) {
+            if(intval($value['id_jenis']) === 1) {
+                $data['response_data'][$key]['nama_jenis'] = 'Laporan Kematian';
+                $mati = self::$query->select('lapor_mati', array(
+                    'nik', 'nama_lengkap', 'tempat_lahir', 'tanggal_lahir', 'tempat_meninggal', 'tanggal_meninggal', 'jam_meninggal', 'nama_keluarga', 'no_handphone_keluarga'
+                ))
+                    ->where(array(
+                        'lapor_mati.id_lapor' => '= ?'
+                    ), array(
+                        $value['id']
+                    ))
+                    ->execute();
+                $data['response_data'][$key]['detail'] = $mati['response_data'];
+            }
+        }
+
+
+        return $data;
+    }
+
     private function tambah_pelaporan($parameter) {
         $Authorization = new Authorization();
         $UserData = $Authorization->readBearerToken($parameter['access_token']);

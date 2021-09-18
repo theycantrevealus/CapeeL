@@ -17,6 +17,11 @@
         <item name="android:windowContentOverlay">@null</item>
     </style>
 
+    <style name="Widget.BottomNavigationView"
+        parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="fontFamily">@font/montserrat_extra_bold</item>
+    </style>
+
     <style name="toast_error">
         <item name="stTextBold">true</item>
         <item name="stTextColor">#fff</item>

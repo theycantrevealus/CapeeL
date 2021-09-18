@@ -436,21 +436,22 @@
                             android:layout_marginTop="20dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
+
                             <android.widget.Button
                                 android:id="@+id/btn_laporkan_mati"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_gravity="end"
                                 android:layout_marginTop="30dp"
                                 android:layout_marginBottom="30dp"
-                                android:fontFamily="@font/greycliff"
                                 android:background="@drawable/ui_button_primary"
-                                android:text="Laporkan"
-                                android:layout_alignParentEnd="true"
+                                android:fontFamily="@font/greycliff"
                                 android:gravity="center"
-                                android:layout_gravity="end"
-                                android:textColor="#fff"
                                 android:paddingStart="40dp"
                                 android:paddingEnd="40dp"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
+                                android:text="Laporkan"
+                                android:textColor="#fff" />
                         </RelativeLayout>
 
 
