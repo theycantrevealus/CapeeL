@@ -67,6 +67,30 @@ class Pelaporan extends Utility {
                     ))
                     ->execute();
                 $data['response_data'][$key]['detail'] = $mati['response_data'];
+            } else if(intval($value['id_jenis']) === 2) {
+                $data['response_data'][$key]['nama_jenis'] = 'Laporan Kelahiran';
+                $lahir = self::$query->select('lapor_lahir', array(
+                    'nik_ortu', 'nama_ortu', 'nama_anak', 'tanggal_lahir', 'tempat_lahir', 'alamat'
+                ))
+                    ->where(array(
+                        'lapor_lahir.id_lapor' => '= ?'
+                    ), array(
+                        $value['id']
+                    ))
+                    ->execute();
+                $data['response_data'][$key]['detail'] = $lahir['response_data'];
+            } else if(intval($value['id_jenis']) === 3) {
+                $data['response_data'][$key]['nama_jenis'] = 'Laporan Pindah';
+                $pindah = self::$query->select('lapor_pindah', array(
+                    'nik', 'nama', 'status_keluarga', 'jenis_pindah', 'alamat'
+                ))
+                    ->where(array(
+                        'lapor_pindah.id_lapor' => '= ?'
+                    ), array(
+                        $value['id']
+                    ))
+                    ->execute();
+                $data['response_data'][$key]['detail'] = $pindah['response_data'];
             }
         }
 
@@ -156,6 +180,87 @@ class Pelaporan extends Utility {
                 }
 
                 $Lapor['detail'] = $LaporMati;
+            } else if(intval($parameter['jenis']) === 2) {
+                $LaporLahir = self::$query->insert('lapor_lahir', array(
+                    'nik_ortu' => $parameter['nik_ortu'],
+                    'nama_ortu' => $parameter['nama_ortu'],
+                    'tempat_lahir' => $parameter['tempat_lahir'],
+                    'tanggal_lahir' => $parameter['tanggal_lahir'],
+                    'nama_anak' => $parameter['nama_anak'],
+                    'alamat' => $parameter['alamat'],
+                    'created_at' => parent::format_date(),
+                    'updated_at' => parent::format_date(),
+                    'id_lapor' => $Lapor['response_unique']
+                ))
+                    ->returning('id')
+                    ->execute();
+
+                if($LaporLahir['response_result'] > 0) {
+                    $LogLaporLahir = parent::log(array(
+                        'type' => 'activity',
+                        'column' => array(
+                            'unique_target',
+                            'user_uid',
+                            'table_name',
+                            'action',
+                            'logged_at',
+                            'status',
+                            'login_id'
+                        ),
+                        'value' => array(
+                            $LaporLahir['response_unique'],
+                            $UserData['data']->uid,
+                            'lapor_lahir',
+                            'I',
+                            parent::format_date(),
+                            'N',
+                            $UserData['data']->log_id
+                        ),
+                        'class' => __CLASS__
+                    ));
+                }
+
+                $Lapor['detail'] = $LaporLahir;
+            } else if(intval($parameter['jenis']) === 3) {
+                $LaporPindah = self::$query->insert('lapor_pindah', array(
+                    'nik' => $parameter['nik'],
+                    'nama' => $parameter['nama'],
+                    'status_keluarga' => $parameter['status_keluarga'],
+                    'jenis_pindah' => $parameter['jenis_pindah'],
+                    'alamat' => $parameter['alamat'],
+                    'created_at' => parent::format_date(),
+                    'updated_at' => parent::format_date(),
+                    'id_lapor' => $Lapor['response_unique']
+                ))
+                    ->returning('id')
+                    ->execute();
+
+                if($LaporPindah['response_result'] > 0) {
+                    $LogLaporPindah = parent::log(array(
+                        'type' => 'activity',
+                        'column' => array(
+                            'unique_target',
+                            'user_uid',
+                            'table_name',
+                            'action',
+                            'logged_at',
+                            'status',
+                            'login_id'
+                        ),
+                        'value' => array(
+                            $LaporPindah['response_unique'],
+                            $UserData['data']->uid,
+                            'lapor_pindah',
+                            'I',
+                            parent::format_date(),
+                            'N',
+                            $UserData['data']->log_id
+                        ),
+                        'class' => __CLASS__
+                    ));
+                }
+
+                $Lapor['detail'] = $LaporPindah;
             }
         }
         return $Lapor;

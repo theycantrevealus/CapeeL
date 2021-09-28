@@ -32,6 +32,18 @@
             android:name=".ui.lapor.LaporMatiActivity"
             android:exported="true"
             android:theme="@style/Theme.MEDANCAPILPELAPORAN" />
+
+        <activity
+            android:windowSoftInputMode="adjustPan"
+            android:name=".ui.lapor.LaporLahirActivity"
+            android:exported="true"
+            android:theme="@style/Theme.MEDANCAPILPELAPORAN" />
+
+        <activity
+            android:windowSoftInputMode="adjustPan"
+            android:name=".ui.lapor.LaporPindahActivity"
+            android:exported="true"
+            android:theme="@style/Theme.MEDANCAPILPELAPORAN" />
     </application>
 
 </manifest>

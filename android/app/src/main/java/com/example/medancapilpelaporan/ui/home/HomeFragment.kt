@@ -10,7 +10,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.medancapilpelaporan.databinding.FragmentHomeBinding
+import com.example.medancapilpelaporan.ui.lapor.LaporLahirActivity
 import com.example.medancapilpelaporan.ui.lapor.LaporMatiActivity
+import com.example.medancapilpelaporan.ui.lapor.LaporPindahActivity
 import com.example.medancapilpelaporan.ui.profile.ProfileEditActivity
 
 class HomeFragment : Fragment() {
@@ -34,10 +36,10 @@ class HomeFragment : Fragment() {
         val root: View = binding.root
 
 
-        val textView: TextView = binding.textHome
+        /*val textView: TextView = binding.textHome
         homeViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
-        })
+        })*/
 
 
 
@@ -48,6 +50,16 @@ class HomeFragment : Fragment() {
 
         binding.menuLaporMati.setOnClickListener(View.OnClickListener {
             val mIntent = Intent(context, LaporMatiActivity::class.java)
+            startActivity(mIntent)
+        })
+
+        binding.menuLaporLahir.setOnClickListener(View.OnClickListener {
+            val mIntent = Intent(context, LaporLahirActivity::class.java)
+            startActivity(mIntent)
+        })
+
+        binding.menuLaporPindah.setOnClickListener(View.OnClickListener {
+            val mIntent = Intent(context, LaporPindahActivity::class.java)
             startActivity(mIntent)
         })
 

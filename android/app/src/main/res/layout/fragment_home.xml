@@ -37,6 +37,7 @@
         tools:ignore="MissingConstraints">
 
         <RelativeLayout
+            android:alpha=".4"
             android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true"
             android:layout_width="200dp"
@@ -46,6 +47,7 @@
             android:background="@drawable/login_ball" />
 
         <RelativeLayout
+            android:alpha=".4"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_alignParentEnd="true"
@@ -126,14 +128,16 @@
                 tools:ignore="UselessParent">
 
                 <RelativeLayout
+                    android:alpha=".4"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_alignParentStart="true"
-                    android:layout_marginTop="260dp"
                     android:layout_marginStart="20dp"
+                    android:layout_marginTop="260dp"
                     android:background="@drawable/login_ball" />
 
                 <RelativeLayout
+                    android:alpha=".4"
                     android:layout_width="200dp"
                     android:layout_height="200dp"
                     android:layout_alignParentEnd="true"
@@ -156,7 +160,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/montserrat_extra_bold"
                         android:text="KATEGORI" />
-                    <TextView
+                    <!--TextView
                         android:layout_marginEnd="10dp"
                         android:layout_width="wrap_content"
                         android:textColor="#AC48FF"
@@ -172,7 +176,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:fontFamily="@font/fa_solid_900"
-                        android:text="@string/forward" />
+                        android:text="@string/forward" /-->
                 </LinearLayout>
 
                 <HorizontalScrollView
@@ -188,110 +192,131 @@
                         android:layout_marginTop="0dp"
                         android:orientation="horizontal">
 
-                        <LinearLayout
+                        <RelativeLayout
                             android:id="@+id/menu_lapor_mati"
                             android:layout_width="140dp"
                             android:layout_height="180dp"
                             android:layout_marginStart="5dp"
                             android:layout_marginTop="10dp"
                             android:layout_marginEnd="5dp"
-                            android:background="@drawable/g16085"
                             android:elevation="2dp"
-                            android:orientation="vertical"
-                            android:padding="10dp">
-
-                            <ImageView
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:src="@drawable/grimreaper" />
-
-                            <TextView
+                            android:orientation="vertical">
+                            <com.google.android.material.imageview.ShapeableImageView
+                                app:shapeAppearanceOverlay="@style/roundedCornersImageView"
+                                android:scaleType="fitXY"
+                                android:adjustViewBounds="true"
+                                android:src="@drawable/graveyard"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="30dp"
-                                android:fontFamily="@font/montserrat_extra_bold"
-                                android:text="LAPORAN KEMATIAN"
-                                android:textColor="#fff"
-                                android:textSize="6pt" />
-                        </LinearLayout>
+                                android:layout_height="match_parent" />
 
-                        <LinearLayout
-                            android:layout_width="85dp"
+                            <LinearLayout
+                                android:background="#fff"
+                                android:alpha=".5"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:padding="10dp">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="90dp"
+                                    android:fontFamily="@font/montserrat_extra_bold"
+                                    android:text="LAPORAN\nKEMATIAN"
+                                    android:textColor="#000"
+                                    android:textSize="6pt" />
+                            </LinearLayout>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/menu_lapor_lahir"
+                            android:layout_width="125dp"
                             android:layout_height="120dp"
                             android:layout_marginStart="5dp"
                             android:layout_marginTop="60dp"
                             android:layout_marginEnd="5dp"
-                            android:background="@drawable/g16085"
                             android:elevation="2dp"
-                            android:orientation="vertical"
-                            android:padding="10dp">
+                            android:orientation="vertical">
 
-                            <ImageView
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                android:src="@drawable/baby_boy" />
-
-                            <TextView
+                            <com.google.android.material.imageview.ShapeableImageView
+                                app:shapeAppearanceOverlay="@style/roundedCornersImageView"
+                                android:scaleType="fitXY"
+                                android:adjustViewBounds="true"
+                                android:src="@drawable/birth"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="30dp"
-                                android:fontFamily="@font/montserrat_extra_bold"
-                                android:text="LAPORAN KELAHIRAN"
-                                android:textColor="#fff"
-                                android:textSize="4.5pt" />
-                        </LinearLayout>
+                                android:layout_height="match_parent" />
 
-                        <LinearLayout
-                            android:layout_width="85dp"
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:alpha=".5"
+                                android:background="#fff" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="60dp"
+                                    android:fontFamily="@font/montserrat_extra_bold"
+                                    android:text="LAPORAN\nKELAHIRAN"
+                                    android:textColor="#000"
+                                    android:textSize="4.5pt" />
+                            </LinearLayout>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/menu_lapor_pindah"
+                            android:layout_width="125dp"
                             android:layout_height="120dp"
                             android:layout_marginStart="5dp"
                             android:layout_marginTop="60dp"
                             android:layout_marginEnd="5dp"
-                            android:background="@drawable/g16085"
                             android:elevation="2dp"
-                            android:orientation="vertical"
-                            android:padding="10dp">
+                            android:orientation="vertical">
 
-                            <ImageView
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                android:src="@drawable/truck" />
-
-                            <TextView
+                            <com.google.android.material.imageview.ShapeableImageView
+                                app:shapeAppearanceOverlay="@style/roundedCornersImageView"
+                                android:scaleType="fitXY"
+                                android:adjustViewBounds="true"
+                                android:src="@drawable/moving"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="30dp"
-                                android:fontFamily="@font/montserrat_extra_bold"
-                                android:text="LAPORAN PINDAH"
-                                android:textColor="#fff"
-                                android:textSize="4.5pt" />
-                        </LinearLayout>
+                                android:layout_height="match_parent" />
 
-                        <LinearLayout
-                            android:layout_width="85dp"
-                            android:layout_height="120dp"
-                            android:layout_marginStart="5dp"
-                            android:layout_marginTop="60dp"
-                            android:layout_marginEnd="5dp"
-                            android:background="@drawable/g16085"
-                            android:elevation="2dp"
-                            android:orientation="vertical"
-                            android:padding="10dp">
-
-                            <ImageView
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                android:src="@drawable/pencil" />
-
-                            <TextView
+                            <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="30dp"
-                                android:fontFamily="@font/montserrat_extra_bold"
-                                android:text="LAPORAN LAIN"
-                                android:textColor="#fff"
-                                android:textSize="4.5pt" />
-                        </LinearLayout>
+                                android:layout_height="match_parent"
+                                android:alpha=".5"
+                                android:background="#fff" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_margin="10dp"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="60dp"
+                                    android:fontFamily="@font/montserrat_extra_bold"
+                                    android:text="LAPORAN\nPINDAH"
+                                    android:textColor="#000"
+                                    android:textSize="4.5pt" />
+                            </LinearLayout>
+                        </RelativeLayout>
+
+
 
                     </LinearLayout>
                 </HorizontalScrollView>
@@ -401,20 +426,6 @@
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
-
-            <TextView
-                android:id="@+id/text_home"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:textAlignment="center"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
         </LinearLayout>
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

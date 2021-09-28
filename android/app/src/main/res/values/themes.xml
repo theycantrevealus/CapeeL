@@ -81,4 +81,10 @@
         <item name="stGravity">top</item> top or center
         <item name="stRadius">5dp</item>
     </style>
+
+
+    <style name="roundedCornersImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">20dp</item>
+    </style>
 </resources>
