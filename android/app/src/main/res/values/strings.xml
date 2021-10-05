@@ -12,6 +12,8 @@
     <string name="capil_caption">DISDUKPAIL</string>
     <string name="powered_by">Rate us at</string>
 
+    <string name="label_mohon_tunggu">Mohon tunggu…</string>
+
     <string name="backward">&#xf060;</string>
     <string name="forward">&#xf061;</string>
 </resources>

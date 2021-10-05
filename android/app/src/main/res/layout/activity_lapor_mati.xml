@@ -454,14 +454,15 @@
                                 android:textColor="#fff" />
                         </RelativeLayout>
 
-
-
-
                     </LinearLayout>
                 </ScrollView>
+
             </RelativeLayout>
+
         </LinearLayout>
 
-
     </RelativeLayout>
+
+    <include android:id="@+id/progressLayout" layout="@layout/progress_layout_dark" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

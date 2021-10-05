@@ -2,7 +2,6 @@ package com.example.medancapilpelaporan.ui.system
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
@@ -28,13 +27,16 @@ import retrofit2.http.Headers
 import retrofit2.http.POST
 
 class LoginActivity: AppCompatActivity() {
+
     private lateinit var binding: ActivityLoginBinding
     lateinit var sessionManager: SessionManager
-    private val configuration: Config = Config()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        
         sessionManager = SessionManager(this)
 
         if(!sessionManager.uID.isNullOrEmpty() && !sessionManager.uID.equals("")){
@@ -42,8 +44,6 @@ class LoginActivity: AppCompatActivity() {
             startActivity(mIntent)
             finish()
         }
-        binding = ActivityLoginBinding.inflate(layoutInflater)
-        setContentView(binding.root)
 
         binding.btnLogin.setOnClickListener(View.OnClickListener {
             val username = binding.txtUsername.text.toString().trim()
@@ -153,7 +153,7 @@ class LoginActivity: AppCompatActivity() {
     }
 
     private fun login(email: String, password: String, token: String?, context: Context) {
-        var retIn: ApiInterface = RetroInstance.getRetrofitInstance(configuration.serverAPI).create(
+        var retIn: ApiInterface = RetroInstance.getRetrofitInstance(Config.serverAPI).create(
             ApiInterface::class.java
         )
 

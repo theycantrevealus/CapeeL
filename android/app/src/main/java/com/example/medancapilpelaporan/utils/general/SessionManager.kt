@@ -6,7 +6,7 @@ import android.graphics.Bitmap
 import com.example.medancapilpelaporan.Config
 
 class SessionManager {
-    private val configuration: Config = Config()
+
     private lateinit var sp: SharedPreferences
     val spEditor: SharedPreferences.Editor
     constructor(context: Context) {

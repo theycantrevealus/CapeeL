@@ -8,16 +8,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.medancapilpelaporan.Config
-import com.example.medancapilpelaporan.MainActivity
 import com.example.medancapilpelaporan.R
 import com.example.medancapilpelaporan.databinding.FragmentNotificationsBinding
-import com.example.medancapilpelaporan.ui.profile.ProfileEditActivity
 import com.example.medancapilpelaporan.ui.system.LoginActivity
 import com.example.medancapilpelaporan.utils.general.InputUtils
 import com.example.medancapilpelaporan.utils.general.RetroInstance
@@ -39,7 +36,6 @@ class NotificationsFragment : Fragment() {
     private var _binding: FragmentNotificationsBinding? = null
     private val binding get() = _binding!!
     lateinit var sessionManager: SessionManager
-    private val configuration: Config = Config()
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -192,7 +188,7 @@ class NotificationsFragment : Fragment() {
     }
 
     fun updateProfile(nama: String, email: String, kontak: String, old: String, new: String) {
-        var retIn: ApiInterface = RetroInstance.getRetrofitInstance(configuration.serverAPI).create(
+        var retIn: ApiInterface = RetroInstance.getRetrofitInstance(Config.serverAPI).create(
             ApiInterface::class.java
         )
 
