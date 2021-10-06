@@ -25,6 +25,8 @@ class Pelaporan extends Utility {
         switch ($parameter['request']) {
             case 'tambah_pelaporan':
                 return self::tambah_pelaporan($parameter);
+            case 'delete_pelaporan':
+                return self::delete_pelaporan($parameter);
                 break;
         }
     }
@@ -195,6 +197,22 @@ class Pelaporan extends Utility {
         }
 
         return $data;
+    }
+
+    private function delete_pelaporan($parameter) {
+        $Authorization = new Authorization();
+        $UserData = $Authorization->readBearerToken($parameter['access_token']);
+
+        $delete = self::$query->delete('lapor')
+            ->where(array(
+                'lapor.id' => '= ?',
+                'AND',
+                'lapor.uid_pegawai' => '= ?'
+            ), array(
+                $parameter['id'], $UserData['data']->uid
+            ))
+            ->execute();
+        return $delete;
     }
 
     private function tambah_pelaporan($parameter) {
