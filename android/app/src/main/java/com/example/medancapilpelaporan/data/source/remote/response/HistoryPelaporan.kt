@@ -18,6 +18,34 @@ data class HistoryPelaporan(
     val nik : String,
 
     @field:SerializedName("nama")
-    val nama : String
+    val nama : String,
+
+    @field:SerializedName("created_at")
+    val waktuSubmit : String
 
 )
+
+data class GetHistoryResultResponse(
+
+    @field:SerializedName("response_package")
+    val responsePackage: GetHistoryResponsePackage,
+
+    @field:SerializedName("token")
+    val token: String? = null
+)
+
+data class GetHistoryResponsePackage(
+
+    @field:SerializedName("response_message")
+    val responseMessage: String,
+
+    @field:SerializedName("response_result")
+    val responseResult: Int,
+
+    @field:SerializedName("response_data")
+    val responseData: ArrayList<HistoryPelaporan>
+
+)
+
+
+

@@ -72,6 +72,12 @@ class SessionManager {
             token = value
         }
 
+    var idAkses: Int
+        get() = sp.getInt("__AKSES__", 0)
+        set(value) {
+            idAkses = value
+        }
+
     fun logout() {
         spEditor.clear().commit()
     }

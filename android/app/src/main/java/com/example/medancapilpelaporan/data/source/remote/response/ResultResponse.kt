@@ -20,3 +20,5 @@ data class ResponsePackage(
 	val responseResult: Int
 
 )
+
+

@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/main_background">
 
     <include layout="@layout/footer" />
@@ -107,269 +108,217 @@
                     android:layout_marginTop="330dp"
                     android:layout_marginEnd="-120dp"
                     android:background="@drawable/login_ball" />
+
                 <ScrollView
-                    android:layout_margin="5dp"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="5dp">
+
                     <LinearLayout
-                        android:layout_marginTop="15dp"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginEnd="40dp"
-                        android:paddingTop="30dp"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingBottom="30dp"
-                        android:orientation="vertical"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-
-
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="40dp"
+                        android:orientation="vertical"
+                        android:paddingStart="5dp"
+                        android:paddingTop="30dp"
+                        android:paddingEnd="5dp"
+                        android:paddingBottom="30dp">
 
 
                         <LinearLayout
-                            android:orientation="vertical"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
                             <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_extra_bold"
                                 android:paddingStart="10dp"
                                 android:paddingEnd="10dp"
                                 android:text="NIK"
-                                android:fontFamily="@font/montserrat_extra_bold"
-                                android:textColor="#000"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
+                                android:textColor="#000" />
+
                             <EditText
-                                android:id="@+id/lapor_mati_nik"
-                                android:textColor="#282828"
-                                android:textColorHint="#808080"
-                                android:paddingStart="20dp"
-                                android:paddingEnd="20dp"
-                                android:paddingTop="10dp"
-                                android:paddingBottom="10dp"
+                                android:id="@+id/nik"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/ui_edittext"
+                                android:fontFamily="@font/greycliff"
                                 android:hint="Nomor Induk Kependudukan"
-                                android:fontFamily="@font/greycliff"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/ui_edittext"
-                                android:textSize="13sp"
+                                android:importantForAutofill="no"
                                 android:inputType="number"
-                                android:importantForAutofill="no" />
+                                android:paddingStart="20dp"
+                                android:paddingTop="10dp"
+                                android:paddingEnd="20dp"
+                                android:paddingBottom="10dp"
+                                android:textColor="#282828"
+                                android:textColorHint="#808080"
+                                android:textSize="13sp" />
                         </LinearLayout>
 
 
-
-
-
                         <LinearLayout
-                            android:layout_marginTop="20dp"
-                            android:orientation="vertical"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:orientation="vertical">
+
                             <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_extra_bold"
                                 android:paddingStart="10dp"
                                 android:paddingEnd="10dp"
-                                android:textColor="#000"
                                 android:text="Nama Lengkap"
-                                android:fontFamily="@font/montserrat_extra_bold"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
+                                android:textColor="#000" />
+
                             <EditText
-                                android:id="@+id/lapor_mati_nama"
-                                android:textColor="#282828"
-                                android:textColorHint="#808080"
-                                android:paddingStart="20dp"
-                                android:paddingEnd="20dp"
-                                android:paddingTop="10dp"
-                                android:paddingBottom="10dp"
+                                android:id="@+id/nama"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/ui_edittext"
+                                android:fontFamily="@font/greycliff"
                                 android:hint="Nama Penduduk"
-                                android:fontFamily="@font/greycliff"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/ui_edittext"
-                                android:textSize="13sp"
+                                android:importantForAutofill="no"
                                 android:inputType="text"
-                                android:importantForAutofill="no" />
-                        </LinearLayout>
-
-
-
-
-                        <LinearLayout
-                            android:layout_marginTop="20dp"
-                            android:orientation="vertical"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-                            <TextView
-                                android:paddingStart="10dp"
-                                android:paddingEnd="10dp"
-                                android:textColor="#000"
-                                android:text="Tempat Lahir"
-                                android:fontFamily="@font/montserrat_extra_bold"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
-                            <EditText
-                                android:id="@+id/lapor_mati_tempat_lahir"
+                                android:paddingStart="20dp"
+                                android:paddingTop="10dp"
+                                android:paddingEnd="20dp"
+                                android:paddingBottom="10dp"
                                 android:textColor="#282828"
                                 android:textColorHint="#808080"
-                                android:paddingStart="20dp"
-                                android:paddingEnd="20dp"
-                                android:paddingTop="10dp"
-                                android:paddingBottom="10dp"
-                                android:hint="Tempat Lahir"
-                                android:fontFamily="@font/greycliff"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/ui_edittext"
-                                android:textSize="13sp"
-                                android:inputType="text"
-                                android:importantForAutofill="no" />
+                                android:textSize="13sp" />
                         </LinearLayout>
 
 
-
                         <LinearLayout
-                            android:layout_marginTop="20dp"
-                            android:orientation="vertical"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:orientation="vertical">
+
                             <TextView
-                                android:paddingStart="10dp"
-                                android:paddingEnd="10dp"
-                                android:textColor="#000"
-                                android:text="Tanggal Lahir"
-                                android:fontFamily="@font/montserrat_extra_bold"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
-                            <EditText
-                                android:id="@+id/lapor_mati_tanggal_lahir"
-                                android:textColor="#282828"
-                                android:textColorHint="#808080"
-                                android:paddingStart="20dp"
-                                android:paddingEnd="20dp"
-                                android:paddingTop="10dp"
-                                android:paddingBottom="10dp"
-                                android:hint="Tanggal Lahir"
-                                android:fontFamily="@font/greycliff"
-                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:background="@drawable/ui_edittext"
-                                android:textSize="13sp"
-                                android:inputType="text"
-                                android:importantForAutofill="no" />
-                        </LinearLayout>
-
-
-
-
-
-
-                        <LinearLayout
-                            android:layout_marginTop="20dp"
-                            android:orientation="vertical"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-                            <TextView
-                                android:paddingStart="10dp"
-                                android:paddingEnd="10dp"
-                                android:textColor="#000"
-                                android:text="Status"
                                 android:fontFamily="@font/montserrat_extra_bold"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
-                            <EditText
-                                android:id="@+id/lapor_mati_tempat_mati"
-                                android:textColor="#282828"
-                                android:textColorHint="#808080"
-                                android:paddingStart="20dp"
-                                android:paddingEnd="20dp"
-                                android:paddingTop="10dp"
-                                android:paddingBottom="10dp"
-                                android:hint="Tempat Meninggal"
-                                android:fontFamily="@font/greycliff"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/ui_edittext"
-                                android:textSize="13sp"
-                                android:inputType="text"
-                                android:importantForAutofill="no" />
-                        </LinearLayout>
-
-
-
-
-
-                        <LinearLayout
-                            android:layout_marginTop="20dp"
-                            android:orientation="vertical"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-                            <TextView
                                 android:paddingStart="10dp"
                                 android:paddingEnd="10dp"
-                                android:textColor="#000"
                                 android:text="Alamat"
-                                android:fontFamily="@font/montserrat_extra_bold"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
+                                android:textColor="#000" />
+
                             <EditText
-                                android:id="@+id/lapor_mati_tanggal_mati"
-                                android:textColor="#282828"
-                                android:textColorHint="#808080"
-                                android:paddingStart="20dp"
-                                android:paddingEnd="20dp"
-                                android:paddingTop="10dp"
-                                android:paddingBottom="10dp"
-                                android:hint="Tanggal Meninggal"
-                                android:fontFamily="@font/greycliff"
+                                android:id="@+id/alamat"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/ui_edittext"
-                                android:textSize="13sp"
+                                android:fontFamily="@font/greycliff"
+                                android:hint="Alamat"
+                                android:importantForAutofill="no"
                                 android:inputType="text"
-                                android:importantForAutofill="no" />
+                                android:paddingStart="20dp"
+                                android:paddingTop="10dp"
+                                android:paddingEnd="20dp"
+                                android:paddingBottom="10dp"
+                                android:textColor="#282828"
+                                android:textColorHint="#808080"
+                                android:textSize="13sp" />
                         </LinearLayout>
 
 
                         <LinearLayout
-                            android:layout_marginTop="20dp"
-                            android:orientation="vertical"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:orientation="vertical">
+
                             <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_extra_bold"
                                 android:paddingStart="10dp"
                                 android:paddingEnd="10dp"
-                                android:textColor="#000"
                                 android:text="Jenis Pindah"
-                                android:fontFamily="@font/montserrat_extra_bold"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
-                            <EditText
-                                android:id="@+id/lapor_jam_mati"
-                                android:textColor="#282828"
-                                android:textColorHint="#808080"
+                                android:textColor="#000" />
+
+                            <Spinner
+                                android:layout_marginTop="10dp"
+                                android:id="@+id/spinner_jenis_pindah"
+                                android:layout_width="200dp"
+                                android:layout_height="wrap_content"
                                 android:paddingStart="20dp"
+                                android:paddingTop="5dp"
                                 android:paddingEnd="20dp"
-                                android:paddingTop="10dp"
-                                android:paddingBottom="10dp"
-                                android:hint="Jam Meninggal"
-                                android:fontFamily="@font/greycliff"
+                                android:paddingBottom="5dp"
+                                android:scrollbarAlwaysDrawVerticalTrack="true"
+                                android:background="@drawable/ui_edittext"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"/>
+
+<!--                            <EditText-->
+<!--                                android:id="@+id/jenis_pindah"-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:background="@drawable/ui_edittext"-->
+<!--                                android:fontFamily="@font/greycliff"-->
+<!--                                android:hint="Cth: SEMENTARA / PERMANEN"-->
+<!--                                android:importantForAutofill="no"-->
+<!--                                android:inputType="text"-->
+<!--                                android:paddingStart="20dp"-->
+<!--                                android:paddingTop="10dp"-->
+<!--                                android:paddingEnd="20dp"-->
+<!--                                android:paddingBottom="10dp"-->
+<!--                                android:textColor="#282828"-->
+<!--                                android:textColorHint="#808080"-->
+<!--                                android:textSize="13sp" />-->
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_extra_bold"
+                                android:paddingStart="10dp"
+                                android:paddingEnd="10dp"
+                                android:text="Status Keluarga"
+                                android:textColor="#000" />
+
+                            <EditText
+                                android:id="@+id/status_keluarga"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/ui_edittext"
-                                android:textSize="13sp"
+                                android:fontFamily="@font/greycliff"
+                                android:hint="Status Keluarga"
+                                android:importantForAutofill="no"
                                 android:inputType="text"
-                                android:importantForAutofill="no" />
+                                android:paddingStart="20dp"
+                                android:paddingTop="10dp"
+                                android:paddingEnd="20dp"
+                                android:paddingBottom="10dp"
+                                android:textColor="#282828"
+                                android:textColorHint="#808080"
+                                android:textSize="13sp" />
                         </LinearLayout>
 
 
                         <RelativeLayout
-                            android:layout_marginTop="20dp"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp">
 
                             <android.widget.Button
-                                android:id="@+id/btn_laporkan_mati"
+                                android:id="@+id/btn_laporkan_pindah"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentEnd="true"
@@ -383,16 +332,32 @@
                                 android:paddingEnd="40dp"
                                 android:text="Laporkan"
                                 android:textColor="#fff" />
+
                         </RelativeLayout>
 
-
-
+                        <android.widget.Button
+                            android:id="@+id/btn_hapus_laporan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_margin="5dp"
+                            android:layout_marginTop="30dp"
+                            android:layout_marginBottom="30dp"
+                            android:background="@drawable/ui_button_danger"
+                            android:fontFamily="@font/greycliff"
+                            android:gravity="center"
+                            android:paddingStart="40dp"
+                            android:paddingEnd="40dp"
+                            android:text="Hapus"
+                            android:textColor="#fff"
+                            android:visibility="gone" />
 
                     </LinearLayout>
                 </ScrollView>
             </RelativeLayout>
         </LinearLayout>
-
-
     </RelativeLayout>
+
+    <include android:id="@+id/progressLayout" layout="@layout/progress_layout_dark" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

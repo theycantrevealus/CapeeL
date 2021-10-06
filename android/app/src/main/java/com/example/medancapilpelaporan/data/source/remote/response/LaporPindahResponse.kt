@@ -16,6 +16,12 @@ data class LaporPindahResponse(
     @field:SerializedName("jenis_pindah")
     val jenisPindah: String,
 
+    @field:SerializedName("status_keluarga")
+    val statusKeluarga: String,
+
     @field:SerializedName("jenis")
-    val jenis: Int =3
+    val jenis: Int = 3,
+
+    @field:SerializedName("tgl_submit")
+    val tglSubmit: String? = null,
 )

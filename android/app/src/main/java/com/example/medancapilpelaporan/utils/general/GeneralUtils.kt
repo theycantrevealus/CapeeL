@@ -14,4 +14,14 @@ object GeneralUtils {
         return userPreference.token.toString()
     }
 
+    fun getAkses(context: Context): Int {
+        val userPreference = SessionManager(context)
+        return userPreference.idAkses
+    }
+
+    fun getNama(context: Context): String {
+        val userPreference = SessionManager(context)
+        return userPreference.nama.toString()
+    }
+
 }

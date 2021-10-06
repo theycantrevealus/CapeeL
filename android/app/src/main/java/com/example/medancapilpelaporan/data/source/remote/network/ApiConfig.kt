@@ -17,8 +17,8 @@ object ApiConfig {
                 val response =  chain.proceed(newRequest)
                 response
             }
-            .connectTimeout(120, TimeUnit.SECONDS)
-            .readTimeout(120, TimeUnit.SECONDS)
+            .connectTimeout(60, TimeUnit.SECONDS)
+            .readTimeout(60, TimeUnit.SECONDS)
             .build()
     }
 

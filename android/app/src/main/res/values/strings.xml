@@ -16,4 +16,9 @@
 
     <string name="backward">&#xf060;</string>
     <string name="forward">&#xf061;</string>
+
+    <string-array name="jenis_pindah">
+        <item>Masuk</item>
+        <item>Keluar</item>
+    </string-array>
 </resources>

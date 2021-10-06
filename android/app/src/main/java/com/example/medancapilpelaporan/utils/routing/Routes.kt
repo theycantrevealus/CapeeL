@@ -1,6 +1,6 @@
 package com.example.medancapilpelaporan.utils.routing
 
-import com.example.medancapilpelaporan.ui.history.HistoryActivity
+import com.example.medancapilpelaporan.ui.history2.HistoryActivity
 
 class Routes {
     private var classRoute: Class<*>? = null

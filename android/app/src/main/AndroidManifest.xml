@@ -2,17 +2,25 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.medancapilpelaporan">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
-        android:usesCleartextTraffic="true"
         android:allowBackup="true"
+        android:fullBackupContent="@xml/backup_descriptor"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MEDANCAPILPELAPORAN"
-        android:fullBackupContent="@xml/backup_descriptor"
+        android:usesCleartextTraffic="true"
         tools:targetApi="m">
+        <activity
+            android:name=".ui.notifications.NotificationViewerActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.history.HistoryViewerActivity"
+            android:exported="true" />
         <activity
             android:name=".ui.system.LoginActivity"
             android:exported="true">
@@ -23,27 +31,25 @@
             </intent-filter>
         </activity>
         <activity
-            android:windowSoftInputMode="adjustPan"
             android:name=".MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.MEDANCAPILPELAPORAN" />
+            android:theme="@style/Theme.MEDANCAPILPELAPORAN"
+            android:windowSoftInputMode="adjustPan" />
         <activity
-            android:windowSoftInputMode="adjustPan"
             android:name=".ui.lapor.LaporMatiActivity"
             android:exported="true"
-            android:theme="@style/Theme.MEDANCAPILPELAPORAN" />
-
+            android:theme="@style/Theme.MEDANCAPILPELAPORAN"
+            android:windowSoftInputMode="adjustPan" />
         <activity
-            android:windowSoftInputMode="adjustPan"
             android:name=".ui.lapor.LaporLahirActivity"
             android:exported="true"
-            android:theme="@style/Theme.MEDANCAPILPELAPORAN" />
-
+            android:theme="@style/Theme.MEDANCAPILPELAPORAN"
+            android:windowSoftInputMode="adjustPan" />
         <activity
-            android:windowSoftInputMode="adjustPan"
             android:name=".ui.lapor.LaporPindahActivity"
             android:exported="true"
-            android:theme="@style/Theme.MEDANCAPILPELAPORAN" />
+            android:theme="@style/Theme.MEDANCAPILPELAPORAN"
+            android:windowSoftInputMode="adjustPan" />
     </application>
 
 </manifest>

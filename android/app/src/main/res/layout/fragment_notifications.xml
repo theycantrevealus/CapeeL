@@ -290,7 +290,8 @@
                             android:orientation="horizontal"
                             android:layout_marginTop="20dp"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="50dp">
                             <android.widget.Button
                                 android:layout_margin="5dp"
                                 android:id="@+id/btn_profile_update"
@@ -323,11 +324,6 @@
                                 android:text="Log Out"
                                 android:textColor="#fff" />
                         </LinearLayout>
-
-
-
-
-
                     </LinearLayout>
                 </ScrollView>
             </RelativeLayout>
@@ -385,7 +381,7 @@
                     android:id="@+id/profile_image"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/me"
+                    android:src="@drawable/avatar"
                     app:civ_border_width="5dp"
                     app:civ_border_color="@color/header"/>
             </LinearLayout>
@@ -408,6 +404,7 @@
                     android:textSize="12pt"
                     android:text="Profile Info" />
                 <TextView
+                    android:id="@+id/poster_nama"
                     android:layout_marginTop="5dp"
                     android:textAlignment="textEnd"
                     android:textColor="#ccc"
@@ -416,7 +413,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="8pt"
                     android:textFontWeight="100"
-                    android:text="Hendry Tanaka" />
+                    android:text="User" />
             </LinearLayout>
         </LinearLayout>
     </RelativeLayout>

@@ -127,6 +127,10 @@ class LoginActivity: AppCompatActivity() {
         @Expose
         private val password: String? = null
 
+        @SerializedName("id_jenis")
+        @Expose
+        private val idJenis: Int = 0 //akses
+
         fun getUID(): String? {
             return uid
         }
@@ -149,6 +153,10 @@ class LoginActivity: AppCompatActivity() {
 
         fun getPassword(): String? {
             return password
+        }
+
+        fun getAkses(): Int {
+            return idJenis
         }
     }
 
@@ -175,6 +183,9 @@ class LoginActivity: AppCompatActivity() {
                         sessionManager.saveSPString("__EMAIL__", dataset.getResponseData()?.getEmail())
                         sessionManager.saveSPString("__PASSWORD__", dataset.getResponseData()?.getPassword())
                         sessionManager.saveSPString("__TOKEN__", dataset.getResponseToken())
+
+                        val getAkses = dataset.getResponseData()?.getAkses()
+                        if (getAkses != null) sessionManager.saveSPInt("__AKSES__", dataset.getResponseData()?.getAkses()!!)
 
                         if (!sessionManager.uID.equals("") || sessionManager.uID?.isEmpty()!!) {
                             val mIntent = Intent(context, MainActivity::class.java)

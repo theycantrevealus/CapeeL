@@ -31,5 +31,8 @@ data class LaporMatiResponse(
     val noHpKeluarga: String,
 
     @field:SerializedName("jenis")
-    val jenis: Int = 1
+    val jenis: Int = 1,
+
+    @field:SerializedName("tgl_submit")
+    val tglSubmit: String? = null,
 )

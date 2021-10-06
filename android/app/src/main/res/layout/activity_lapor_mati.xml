@@ -249,13 +249,14 @@
                                 android:paddingEnd="20dp"
                                 android:paddingTop="10dp"
                                 android:paddingBottom="10dp"
-                                android:hint="Tanggal Lahir"
+                                android:hint="Tahun-Bulan-Tanggal"
                                 android:fontFamily="@font/greycliff"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/ui_edittext"
                                 android:textSize="13sp"
                                 android:inputType="text"
+                                android:focusable="false"
                                 android:importantForAutofill="no" />
                         </LinearLayout>
 
@@ -320,13 +321,14 @@
                                 android:paddingEnd="20dp"
                                 android:paddingTop="10dp"
                                 android:paddingBottom="10dp"
-                                android:hint="Tanggal Meninggal"
+                                android:hint="Tahun-Bulan-Tanggal"
                                 android:fontFamily="@font/greycliff"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/ui_edittext"
                                 android:textSize="13sp"
                                 android:inputType="text"
+                                android:focusable="false"
                                 android:importantForAutofill="no" />
                         </LinearLayout>
 
@@ -345,6 +347,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content" />
                             <EditText
+                                android:focusable="false"
                                 android:id="@+id/lapor_jam_mati"
                                 android:textColor="#282828"
                                 android:textColorHint="#808080"
@@ -425,7 +428,7 @@
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/ui_edittext"
                                 android:textSize="13sp"
-                                android:inputType="text"
+                                android:inputType="phone"
                                 android:importantForAutofill="no" />
                         </LinearLayout>
 
@@ -443,7 +446,6 @@
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentEnd="true"
                                 android:layout_gravity="end"
-                                android:layout_marginTop="30dp"
                                 android:layout_marginBottom="30dp"
                                 android:background="@drawable/ui_button_primary"
                                 android:fontFamily="@font/greycliff"
@@ -453,6 +455,23 @@
                                 android:text="Laporkan"
                                 android:textColor="#fff" />
                         </RelativeLayout>
+
+                        <android.widget.Button
+                            android:id="@+id/btn_hapus_laporan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_margin="5dp"
+                            android:layout_marginTop="30dp"
+                            android:layout_marginBottom="30dp"
+                            android:background="@drawable/ui_button_danger"
+                            android:fontFamily="@font/greycliff"
+                            android:gravity="center"
+                            android:paddingStart="40dp"
+                            android:paddingEnd="40dp"
+                            android:text="Hapus"
+                            android:textColor="#fff"
+                            android:visibility="gone" />
 
                     </LinearLayout>
                 </ScrollView>

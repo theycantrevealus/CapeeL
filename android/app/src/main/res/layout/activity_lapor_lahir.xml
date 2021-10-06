@@ -149,7 +149,7 @@
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/ui_edittext"
                                 android:fontFamily="@font/greycliff"
-                                android:hint="Nama Penduduk"
+                                android:hint="Nama Anak"
                                 android:importantForAutofill="no"
                                 android:inputType="text"
                                 android:paddingStart="20dp"
@@ -217,7 +217,7 @@
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/ui_edittext"
                                 android:fontFamily="@font/greycliff"
-                                android:hint="Tanggal Lahir"
+                                android:hint="Tahun-Bulan-Tanggal"
                                 android:importantForAutofill="no"
                                 android:inputType="text"
                                 android:paddingStart="20dp"
@@ -226,7 +226,8 @@
                                 android:paddingBottom="10dp"
                                 android:textColor="#282828"
                                 android:textColorHint="#808080"
-                                android:textSize="13sp" />
+                                android:textSize="13sp"
+                                android:focusable="false" />
                         </LinearLayout>
 
 
@@ -251,9 +252,9 @@
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/ui_edittext"
                                 android:fontFamily="@font/greycliff"
-                                android:hint="Tempat Meninggal"
+                                android:hint="NIK Orang Tua"
                                 android:importantForAutofill="no"
-                                android:inputType="text"
+                                android:inputType="number"
                                 android:paddingStart="20dp"
                                 android:paddingTop="10dp"
                                 android:paddingEnd="20dp"
@@ -285,7 +286,7 @@
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/ui_edittext"
                                 android:fontFamily="@font/greycliff"
-                                android:hint="Tempat Meninggal"
+                                android:hint="Nama Orang Tua"
                                 android:importantForAutofill="no"
                                 android:inputType="text"
                                 android:paddingStart="20dp"
@@ -319,7 +320,7 @@
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/ui_edittext"
                                 android:fontFamily="@font/greycliff"
-                                android:hint="Tanggal Meninggal"
+                                android:hint="Alamat"
                                 android:importantForAutofill="no"
                                 android:inputType="text"
                                 android:paddingStart="20dp"
@@ -354,12 +355,29 @@
                                 android:textColor="#fff" />
                         </RelativeLayout>
 
+                        <android.widget.Button
+                            android:id="@+id/btn_hapus_laporan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_margin="5dp"
+                            android:layout_marginTop="30dp"
+                            android:layout_marginBottom="30dp"
+                            android:background="@drawable/ui_button_danger"
+                            android:fontFamily="@font/greycliff"
+                            android:gravity="center"
+                            android:paddingStart="40dp"
+                            android:paddingEnd="40dp"
+                            android:text="Hapus"
+                            android:textColor="#fff"
+                            android:visibility="gone" />
 
                     </LinearLayout>
                 </ScrollView>
             </RelativeLayout>
         </LinearLayout>
-
-
     </RelativeLayout>
+
+    <include android:id="@+id/progressLayout" layout="@layout/progress_layout_dark" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

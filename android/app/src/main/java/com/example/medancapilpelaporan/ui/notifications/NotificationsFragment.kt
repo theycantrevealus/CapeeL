@@ -1,5 +1,6 @@
 package com.example.medancapilpelaporan.ui.notifications
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
@@ -16,6 +17,7 @@ import com.example.medancapilpelaporan.Config
 import com.example.medancapilpelaporan.R
 import com.example.medancapilpelaporan.databinding.FragmentNotificationsBinding
 import com.example.medancapilpelaporan.ui.system.LoginActivity
+import com.example.medancapilpelaporan.utils.general.GeneralUtils
 import com.example.medancapilpelaporan.utils.general.InputUtils
 import com.example.medancapilpelaporan.utils.general.RetroInstance
 import com.example.medancapilpelaporan.utils.general.SessionManager
@@ -41,7 +43,7 @@ class NotificationsFragment : Fragment() {
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         notificationsViewModel =
                 ViewModelProvider(this).get(NotificationsViewModel::class.java)
 
@@ -53,7 +55,9 @@ class NotificationsFragment : Fragment() {
         val profileNama: EditText = binding.profileNama
         val profileEmail: EditText = binding.profileEmail
         val profileKontak: EditText = binding.profileKontak
+
         notificationsViewModel.text.observe(viewLifecycleOwner, Observer {
+            binding.posterNama.text = sessionManager.nama.toString()
             profileNama.setText(sessionManager.nama.toString())
             profileEmail.setText(sessionManager.email.toString())
             profileKontak.setText(sessionManager.kontak.toString())
@@ -70,9 +74,9 @@ class NotificationsFragment : Fragment() {
             val nama = binding.profileNama.text.toString().trim()
             val email = binding.profileEmail.text.toString().trim()
             val kontak = binding.profileKontak.text.toString().trim()
-            var old = binding.profilePasswordOld.text.toString().trim()
-            var new = binding.profilePasswordNew.text.toString().trim()
-            var conf = binding.profilePasswordConf.text.toString().trim()
+            val old = binding.profilePasswordOld.text.toString().trim()
+            val new = binding.profilePasswordNew.text.toString().trim()
+            val conf = binding.profilePasswordConf.text.toString().trim()
 
             when{
                 TextUtils.isEmpty(nama) -> binding.profileNama.error = InputUtils.FIELD_REQUIRED
@@ -80,7 +84,7 @@ class NotificationsFragment : Fragment() {
                 TextUtils.isEmpty(kontak) -> binding.profileKontak.error = InputUtils.FIELD_REQUIRED
                 (!new.equals(conf)) -> binding.profilePasswordNew.error = InputUtils.FIELD_REQUIRED
                 else -> {
-                    updateProfile(nama, email, kontak, old, new)
+                    updateProfile(nama, email, kontak, old, new, root.context)
                 }
             }
         })
@@ -93,7 +97,7 @@ class NotificationsFragment : Fragment() {
         @Headers("Accept: application/json")
         @POST("Pegawai")
         @FormUrlEncoded
-        fun signin(
+        fun updateProfile(
             @Field("request") request: String,
             @Field("nama") nama: String,
             @Field("email") email: String,
@@ -187,12 +191,12 @@ class NotificationsFragment : Fragment() {
         }
     }
 
-    fun updateProfile(nama: String, email: String, kontak: String, old: String, new: String) {
-        var retIn: ApiInterface = RetroInstance.getRetrofitInstance(Config.serverAPI).create(
+    fun updateProfile(nama: String, email: String, kontak: String, old: String, new: String, context: Context) {
+        var retIn: ApiInterface = RetroInstance.getRetrofitInstance(Config.serverAPI, GeneralUtils.getToken(context)).create(
             ApiInterface::class.java
         )
 
-        retIn.signin("update_profile", nama, email,kontak,old,new).enqueue(object : Callback<UpdateResponse> {
+        retIn.updateProfile("update_profile", nama, email,kontak,old,new).enqueue(object : Callback<UpdateResponse> {
             override fun onFailure(call: Call<UpdateResponse>, t: Throwable) {
                 val message: String? = t.message
                 Log.e("TANAKA", message.toString())

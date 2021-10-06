@@ -23,5 +23,10 @@ data class LaporLahirResponse(
     val alamat: String,
 
     @field:SerializedName("jenis")
-    val jenis: Int = 2
+    val jenis: Int = 2,
+
+    @field:SerializedName("tgl_submit")
+    val tglSubmit: String? = null,
 )
+
+
