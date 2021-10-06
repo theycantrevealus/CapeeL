@@ -213,10 +213,10 @@ class Pegawai extends Utility {
                     'email' => $read[0]['email'],
                     'nama' => $read[0]['nama'],
                     'no_handphone' => $read[0]['no_handphone'],
-                    'kecamatan' => $read[0]['id_kecamatan'],
-                    'kelurahan' => $read[0]['id_kelurahan'],
-                    'faskes' => $read[0]['id_faskes'],
-                    'lingkungan' => $read[0]['id_lingkungan'],
+                    'kecamatan' => intval($read[0]['id_kecamatan']),
+                    'kelurahan' => intval($read[0]['id_kelurahan']),
+                    'faskes' => intval($read[0]['id_faskes']),
+                    'lingkungan' => intval($read[0]['id_lingkungan']),
                     'log_id' => $log
                 );
 

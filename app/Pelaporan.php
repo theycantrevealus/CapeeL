@@ -324,12 +324,12 @@ class Pelaporan extends Utility {
             'created_at' => parent::format_date(),
             'updated_at' => parent::format_date(),
             'uid_pegawai' => $UserData['data']->uid,
-            'id_kecamatan' => $UserData['data']->kecamatan,
-            'id_kelurahan' => $UserData['data']->kelurahan,
-            'id_lingkungan' => $UserData['data']->lingkungan,
-            'id_faskes' => $UserData['data']->faskes,
-            'id_jenis' => $parameter['jenis'],
-            'kode' => parent::generatePassword(6)
+            'id_kecamatan' => intval($UserData['data']->kecamatan),
+            'id_kelurahan' => intval($UserData['data']->kelurahan),
+            'id_lingkungan' => intval($UserData['data']->lingkungan),
+            'id_faskes' => intval($UserData['data']->faskes),
+            'id_jenis' => intval($parameter['jenis']),
+            'kode' => strtoupper(parent::generatePassword(6))
         ))
             ->returning('id')
             ->execute();
