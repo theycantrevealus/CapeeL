@@ -59,10 +59,15 @@ class Pelaporan extends Utility {
                 $UserData['data']->uid
             ))
             ->execute();
+
+        $resultList = [];
         foreach($data['response_data'] as $key => $value) {
-            $data['response_data'][$key]['tgl_submit'] = date('d F Y', strtotime($value['created_at']));
+
+            $resultItems = $value;
+
             if(intval($value['id_jenis']) === 1) {
-                $data['response_data'][$key]['nama_jenis'] = 'Laporan Kematian';
+                $resultItems['nama_jenis'] = 'Laporan Kematian';
+
                 $mati = self::$query->select('lapor_mati', array(
                     'nik', 'nama_lengkap', 'tempat_lahir', 'tanggal_lahir', 'tempat_meninggal', 'tanggal_meninggal', 'jam_meninggal', 'nama_keluarga', 'no_handphone_keluarga'
                 ))
@@ -72,14 +77,20 @@ class Pelaporan extends Utility {
                         $value['id']
                     ))
                     ->execute();
-                foreach ($mati['response_data'] as $dK => $dV) {
-                    foreach ($dV as $dKK => $dKV) {
-                        $data['response_data'][$key][$dKK] = $dKV;
-                    }
+
+                $dataMati = $mati['response_data'];
+                if (count($dataMati) > 0) {
+                    $resultItems['nik'] = $dataMati[0]['nik'];
+                    $resultItems['nama'] = $dataMati[0]['nama_lengkap'];
+                    $resultItems['detail'] = $dataMati;
+
+                    $resultList[] = $resultItems;
                 }
-                //$data['response_data'][$key]['detail'] = $mati['response_data'];
+
+
             } else if(intval($value['id_jenis']) === 2) {
-                $data['response_data'][$key]['nama_jenis'] = 'Laporan Kelahiran';
+                $resultItems['nama_jenis'] = 'Laporan Kelahiran';
+
                 $lahir = self::$query->select('lapor_lahir', array(
                     'nik_ortu', 'nama_ortu', 'nama_anak', 'tanggal_lahir', 'tempat_lahir', 'alamat'
                 ))
@@ -89,14 +100,19 @@ class Pelaporan extends Utility {
                         $value['id']
                     ))
                     ->execute();
-                foreach ($lahir['response_data'] as $dK => $dV) {
-                    foreach ($dV as $dKK => $dKV) {
-                        $data['response_data'][$key][$dKK] = $dKV;
-                    }
+
+                $dataLahir = $lahir['response_data'];
+                if (count($dataLahir) > 0) {
+                    $resultItems['nik'] = $dataLahir[0]['nik_ortu'];
+                    $resultItems['nama'] = $dataLahir[0]['nama_ortu'];
+                    $resultItems['detail'] = $dataLahir;
+
+                    $resultList[] = $resultItems;
                 }
-                //$data['response_data'][$key]['detail'] = $lahir['response_data'];
+
             } else if(intval($value['id_jenis']) === 3) {
-                $data['response_data'][$key]['nama_jenis'] = 'Laporan Pindah';
+                $resultItems['nama_jenis'] = 'Laporan Pindah';
+
                 $pindah = self::$query->select('lapor_pindah', array(
                     'nik', 'nama', 'status_keluarga', 'jenis_pindah', 'alamat'
                 ))
@@ -106,15 +122,20 @@ class Pelaporan extends Utility {
                         $value['id']
                     ))
                     ->execute();
-                foreach ($pindah['response_data'] as $dK => $dV) {
-                    foreach ($dV as $dKK => $dKV) {
-                        $data['response_data'][$key][$dKK] = $dKV;
-                    }
+
+                $dataPindah = $pindah['response_data'];
+                if (count($dataPindah) > 0) {
+                    $resultItems['nik'] = $dataPindah[0]['nik'];
+                    $resultItems['nama'] = $dataPindah[0]['nama'];
+                    $resultItems['detail'] = $dataPindah;
+
+                    $resultList[] = $resultItems;
                 }
-                //$data['response_data'][$key]['detail'] = $pindah['response_data'];
             }
         }
 
+        $data['response_result'] = count($resultList);
+        $data['response_data'] = $resultList;
 
         return $data;
     }
@@ -198,6 +219,86 @@ class Pelaporan extends Utility {
 
         return $data;
     }
+
+    /*private function detail_pelaporan($parameter) {
+        $Authorization = new Authorization();
+        $UserData = $Authorization->readBearerToken($parameter['access_token']);
+
+        $Authorization = new Authorization();
+        $UserData = $Authorization->readBearerToken($parameter['access_token']);
+
+        $data = self::$query->select('lapor', array(
+            'id', 'id_jenis', 'id_kecamatan', 'id_kelurahan', 'created_at'
+        ))
+            ->where(array(
+                'lapor.id' => '= ?',
+                'AND',
+                'lapor.uid_pegawai' => '= ?',
+                'AND',
+                'lapor.deleted_at' => 'IS NULL'
+            ), array(
+                $parameter,
+                $UserData['data']->uid
+            ))
+            ->execute();
+        foreach($data['response_data'] as $key => $value) {
+            $data['response_data'][$key]['tgl_submit'] = date('d F Y', strtotime($value['created_at']));
+            if(intval($value['id_jenis']) === 1) {
+                $data['response_data'][$key]['nama_jenis'] = 'Laporan Kematian';
+                $mati = self::$query->select('lapor_mati', array(
+                    'nik', 'nama_lengkap', 'tempat_lahir', 'tanggal_lahir', 'tempat_meninggal', 'tanggal_meninggal', 'jam_meninggal', 'nama_keluarga', 'no_handphone_keluarga'
+                ))
+                    ->where(array(
+                        'lapor_mati.id_lapor' => '= ?'
+                    ), array(
+                        $value['id']
+                    ))
+                    ->execute();
+                foreach ($mati['response_data'] as $dK => $dV) {
+                    foreach ($dV as $dKK => $dKV) {
+                        $data['response_data'][$key][$dKK] = $dKV;
+                    }
+                }
+                //$data['response_data'][$key]['detail'] = $mati['response_data'];
+            } else if(intval($value['id_jenis']) === 2) {
+                $data['response_data'][$key]['nama_jenis'] = 'Laporan Kelahiran';
+                $lahir = self::$query->select('lapor_lahir', array(
+                    'nik_ortu', 'nama_ortu', 'nama_anak', 'tanggal_lahir', 'tempat_lahir', 'alamat'
+                ))
+                    ->where(array(
+                        'lapor_lahir.id_lapor' => '= ?'
+                    ), array(
+                        $value['id']
+                    ))
+                    ->execute();
+                foreach ($lahir['response_data'] as $dK => $dV) {
+                    foreach ($dV as $dKK => $dKV) {
+                        $data['response_data'][$key][$dKK] = $dKV;
+                    }
+                }
+                //$data['response_data'][$key]['detail'] = $lahir['response_data'];
+            } else if(intval($value['id_jenis']) === 3) {
+                $data['response_data'][$key]['nama_jenis'] = 'Laporan Pindah';
+                $pindah = self::$query->select('lapor_pindah', array(
+                    'nik', 'nama', 'status_keluarga', 'jenis_pindah', 'alamat'
+                ))
+                    ->where(array(
+                        'lapor_pindah.id_lapor' => '= ?'
+                    ), array(
+                        $value['id']
+                    ))
+                    ->execute();
+                foreach ($pindah['response_data'] as $dK => $dV) {
+                    foreach ($dV as $dKK => $dKV) {
+                        $data['response_data'][$key][$dKK] = $dKV;
+                    }
+                }
+                //$data['response_data'][$key]['detail'] = $pindah['response_data'];
+            }
+        }
+
+        return $data;
+    }*/
 
     private function delete_pelaporan($parameter) {
         $Authorization = new Authorization();
@@ -382,7 +483,11 @@ class Pelaporan extends Utility {
                 $Lapor['detail'] = $LaporPindah;
             }
         }
-        return $Lapor;
+
+        return array(
+            'response_result' => $Lapor['response_result'],
+            'response_message' => $Lapor['response_message']
+        );
     }
 }
 
