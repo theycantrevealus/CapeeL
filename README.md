@@ -222,7 +222,18 @@ CapeeL API Only
       "license": "-----BEGIN PUBLIC KEY-----\nMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDXVQmq3+UqbhC3rLCXSEu\/\/miV\nFXhkr+zoK17NTfA9VbdVT95Ag+CLi8hEAnkffpPEacLAIoVjOgtzT4wlWTpkUHCR\nLlVqw6mjJsqF4EWH4b4N\/eJ+7S0O+vAJi7cxscOaU6zs9Dm+lPNvN4AmRi05xOHW\nDhZ8i8+VWEP\/azAO1wIDAQAB\n-----END PUBLIC KEY-----\n"
    }
    ```
-5. Pelaporan History
+5. Pelaporan Delete
+**Request**
+```
+   curl --request POST \
+   --url http://127.0.0.1/CapeeL/Pelaporan \
+   --header 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjFcL3NpbXJzdjJcL2NsaWVudCIsImlhdCI6MTYzMjgxNTQwOCwibmJmIjoxNjMyODE1NDE4LCJleHAiOjE2MzI4MTU0MzgsImF1ZCI6InVzZXJzX2xpYnJhcnkiLCJkYXRhIjp7InVpZCI6IjgxMTM2NTJkLTRjYjctZTg1MC1kNDg3LTI4MWExNzYyMDQyYSIsImZvdG8iOiIiLCJwYXNzd29yZCI6IiQyeSQxMCRGYTlvWU95Yi53dElaMXBMbXN6NGNlRnJtMHowT3d2ZlI2elM3Tzg3bGVVakhuem1VQm94QyIsImVtYWlsIjoidGhleWNhbnRyZXZlYWx1c0BnbWFpbC5jb20iLCJuYW1hIjoiSGVuZHJ5IFRhbmFrYSIsIm5vX2hhbmRwaG9uZSI6IjA4NTI2MTUxMDIwMiIsImxvZ19pZCI6IjMwIn19.jWjDIaXEzYDvZBQbAb10AgzMk_e5JiRmIx67PRQtvxs' \
+   --header 'Content-Type: multipart/form-data; boundary=---011000010111000001101001' \
+   --cookie PHPSESSID=63gclihstfp1bgum9pctmg3udm \
+   --form request=delete_pelaporan \
+   --form id=10 \
+   ```
+7. Pelaporan History
 
    **Request**
    ```
