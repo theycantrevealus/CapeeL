@@ -182,8 +182,8 @@ class Pegawai extends Utility {
     //LOGIN
     private function login($parameter) {
         $responseBuilder = array();
-        $query = self::$pdo->prepare('SELECT * FROM pegawai WHERE deleted_at IS NULL AND username = ?');
-        $query->execute(array($parameter['username']));
+        $query = self::$pdo->prepare('SELECT * FROM pegawai WHERE deleted_at IS NULL AND username = ? AND akses_mobile = ?');
+        $query->execute(array($parameter['username'], 'Y'));
 
         if($query->rowCount() > 0) {
             $read = $query->fetchAll(\PDO::FETCH_ASSOC);
