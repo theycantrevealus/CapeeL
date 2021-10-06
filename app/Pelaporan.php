@@ -320,6 +320,8 @@ class Pelaporan extends Utility {
         $Authorization = new Authorization();
         $UserData = $Authorization->readBearerToken($parameter['access_token']);
 
+        $parameter = json_decode($parameter['data'], true);
+
         $Lapor = self::$query->insert('lapor', array(
             'created_at' => parent::format_date(),
             'updated_at' => parent::format_date(),
