@@ -34,6 +34,9 @@ class Pelaporan extends Utility {
             case 'list':
                 return array();
                 break;
+            case 'detail':
+                return self::detail_pelaporan($parameter[2]);
+                break;
             default:
                 return self::get_my_pelaporan($parameter);
         }
@@ -54,15 +57,10 @@ class Pelaporan extends Utility {
                 $UserData['data']->uid
             ))
             ->execute();
-
-        $resultList = [];
         foreach($data['response_data'] as $key => $value) {
-
-            $resultItems = $value;
-
+            $data['response_data'][$key]['tgl_submit'] = date('d F Y', strtotime($value['created_at']));
             if(intval($value['id_jenis']) === 1) {
-                $resultItems['nama_jenis'] = 'Laporan Kematian';
-
+                $data['response_data'][$key]['nama_jenis'] = 'Laporan Kematian';
                 $mati = self::$query->select('lapor_mati', array(
                     'nik', 'nama_lengkap', 'tempat_lahir', 'tanggal_lahir', 'tempat_meninggal', 'tanggal_meninggal', 'jam_meninggal', 'nama_keluarga', 'no_handphone_keluarga'
                 ))
@@ -72,20 +70,14 @@ class Pelaporan extends Utility {
                         $value['id']
                     ))
                     ->execute();
-
-                $dataMati = $mati['response_data'];
-                if (count($dataMati) > 0) {
-                    $resultItems['nik'] = $dataMati[0]['nik'];
-                    $resultItems['nama'] = $dataMati[0]['nama_lengkap'];
-                    $resultItems['detail'] = $dataMati;
-
-                    $resultList[] = $resultItems; 
-                } 
-
-
+                foreach ($mati['response_data'] as $dK => $dV) {
+                    foreach ($dV as $dKK => $dKV) {
+                        $data['response_data'][$key][$dKK] = $dKV;
+                    }
+                }
+                //$data['response_data'][$key]['detail'] = $mati['response_data'];
             } else if(intval($value['id_jenis']) === 2) {
-                $resultItems['nama_jenis'] = 'Laporan Kelahiran';
-
+                $data['response_data'][$key]['nama_jenis'] = 'Laporan Kelahiran';
                 $lahir = self::$query->select('lapor_lahir', array(
                     'nik_ortu', 'nama_ortu', 'nama_anak', 'tanggal_lahir', 'tempat_lahir', 'alamat'
                 ))
@@ -95,19 +87,14 @@ class Pelaporan extends Utility {
                         $value['id']
                     ))
                     ->execute();
-                
-                $dataLahir = $lahir['response_data'];
-                if (count($dataLahir) > 0) {
-                    $resultItems['nik'] = $dataLahir[0]['nik_ortu'];
-                    $resultItems['nama'] = $dataLahir[0]['nama_ortu'];   
-                    $resultItems['detail'] = $dataLahir;
-
-                    $resultList[] = $resultItems; 
+                foreach ($lahir['response_data'] as $dK => $dV) {
+                    foreach ($dV as $dKK => $dKV) {
+                        $data['response_data'][$key][$dKK] = $dKV;
+                    }
                 }
-
+                //$data['response_data'][$key]['detail'] = $lahir['response_data'];
             } else if(intval($value['id_jenis']) === 3) {
-                $resultItems['nama_jenis'] = 'Laporan Pindah';
-                
+                $data['response_data'][$key]['nama_jenis'] = 'Laporan Pindah';
                 $pindah = self::$query->select('lapor_pindah', array(
                     'nik', 'nama', 'status_keluarga', 'jenis_pindah', 'alamat'
                 ))
@@ -117,20 +104,95 @@ class Pelaporan extends Utility {
                         $value['id']
                     ))
                     ->execute();
-                    
-                $dataPindah = $pindah['response_data'];
-                if (count($dataPindah) > 0) {
-                    $resultItems['nik'] = $dataPindah[0]['nik'];
-                    $resultItems['nama'] = $dataPindah[0]['nama'];
-                    $resultItems['detail'] = $dataPindah;
-
-                    $resultList[] = $resultItems; 
+                foreach ($pindah['response_data'] as $dK => $dV) {
+                    foreach ($dV as $dKK => $dKV) {
+                        $data['response_data'][$key][$dKK] = $dKV;
+                    }
                 }
+                //$data['response_data'][$key]['detail'] = $pindah['response_data'];
             }
         }
 
-        $data['response_result'] = count($resultList);
-        $data['response_data'] = $resultList;
+
+        return $data;
+    }
+
+    private function detail_pelaporan($parameter) {
+        $Authorization = new Authorization();
+        $UserData = $Authorization->readBearerToken($parameter['access_token']);
+
+        $Authorization = new Authorization();
+        $UserData = $Authorization->readBearerToken($parameter['access_token']);
+
+        $data = self::$query->select('lapor', array(
+            'id', 'id_jenis', 'id_kecamatan', 'id_kelurahan', 'created_at'
+        ))
+            ->where(array(
+                'lapor.id' => '= ?',
+                'AND',
+                'lapor.uid_pegawai' => '= ?',
+                'AND',
+                'lapor.deleted_at' => 'IS NULL'
+            ), array(
+                $parameter,
+                $UserData['data']->uid
+            ))
+            ->execute();
+        foreach($data['response_data'] as $key => $value) {
+            $data['response_data'][$key]['tgl_submit'] = date('d F Y', strtotime($value['created_at']));
+            if(intval($value['id_jenis']) === 1) {
+                $data['response_data'][$key]['nama_jenis'] = 'Laporan Kematian';
+                $mati = self::$query->select('lapor_mati', array(
+                    'nik', 'nama_lengkap', 'tempat_lahir', 'tanggal_lahir', 'tempat_meninggal', 'tanggal_meninggal', 'jam_meninggal', 'nama_keluarga', 'no_handphone_keluarga'
+                ))
+                    ->where(array(
+                        'lapor_mati.id_lapor' => '= ?'
+                    ), array(
+                        $value['id']
+                    ))
+                    ->execute();
+                foreach ($mati['response_data'] as $dK => $dV) {
+                    foreach ($dV as $dKK => $dKV) {
+                        $data['response_data'][$key][$dKK] = $dKV;
+                    }
+                }
+                //$data['response_data'][$key]['detail'] = $mati['response_data'];
+            } else if(intval($value['id_jenis']) === 2) {
+                $data['response_data'][$key]['nama_jenis'] = 'Laporan Kelahiran';
+                $lahir = self::$query->select('lapor_lahir', array(
+                    'nik_ortu', 'nama_ortu', 'nama_anak', 'tanggal_lahir', 'tempat_lahir', 'alamat'
+                ))
+                    ->where(array(
+                        'lapor_lahir.id_lapor' => '= ?'
+                    ), array(
+                        $value['id']
+                    ))
+                    ->execute();
+                foreach ($lahir['response_data'] as $dK => $dV) {
+                    foreach ($dV as $dKK => $dKV) {
+                        $data['response_data'][$key][$dKK] = $dKV;
+                    }
+                }
+                //$data['response_data'][$key]['detail'] = $lahir['response_data'];
+            } else if(intval($value['id_jenis']) === 3) {
+                $data['response_data'][$key]['nama_jenis'] = 'Laporan Pindah';
+                $pindah = self::$query->select('lapor_pindah', array(
+                    'nik', 'nama', 'status_keluarga', 'jenis_pindah', 'alamat'
+                ))
+                    ->where(array(
+                        'lapor_pindah.id_lapor' => '= ?'
+                    ), array(
+                        $value['id']
+                    ))
+                    ->execute();
+                foreach ($pindah['response_data'] as $dK => $dV) {
+                    foreach ($dV as $dKK => $dKV) {
+                        $data['response_data'][$key][$dKK] = $dKV;
+                    }
+                }
+                //$data['response_data'][$key]['detail'] = $pindah['response_data'];
+            }
+        }
 
         return $data;
     }
@@ -139,20 +201,14 @@ class Pelaporan extends Utility {
         $Authorization = new Authorization();
         $UserData = $Authorization->readBearerToken($parameter['access_token']);
 
-        // $return_data = [
-        //     "response_result" => 0,
-        //     "response_message" => "Data gagal ditambah"
-        // ];
-
-        // return $return_data;
-    
-
         $Lapor = self::$query->insert('lapor', array(
             'created_at' => parent::format_date(),
             'updated_at' => parent::format_date(),
             'uid_pegawai' => $UserData['data']->uid,
-            'id_kecamatan' => $parameter['kecamatan'],
-            'id_kelurahan' => $parameter['kelurahan'],
+            'id_kecamatan' => $UserData['data']->kecamatan,
+            'id_kelurahan' => $UserData['data']->kelurahan,
+            'id_lingkungan' => $UserData['data']->lingkungan,
+            'id_faskes' => $UserData['data']->faskes,
             'id_jenis' => $parameter['jenis']
         ))
             ->returning('id')

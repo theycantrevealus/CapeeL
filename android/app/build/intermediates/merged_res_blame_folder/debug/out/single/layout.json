@@ -1,0 +1,50 @@
+[
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_notifications.xml",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/layout/fragment_notifications.xml"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/activity_lapor_lahir.xml",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/layout/activity_lapor_lahir.xml"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/activity_lapor_pindah.xml",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/layout/activity_lapor_pindah.xml"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/activity_lapor_sukses.xml",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/layout/activity_lapor_sukses.xml"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/footer.xml",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/layout/footer.xml"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/halaman_kosong.xml",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/layout/halaman_kosong.xml"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_home.xml",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/layout/fragment_home.xml"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/activity_login.xml",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/layout/activity_login.xml"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/activity_lapor_mati.xml",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/layout/activity_lapor_mati.xml"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/activity_gagal.xml",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/layout/activity_gagal.xml"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_dashboard.xml",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/layout/fragment_dashboard.xml"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/activity_main.xml",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/layout/activity_main.xml"
+    }
+]

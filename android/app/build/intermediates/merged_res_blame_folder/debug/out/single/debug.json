@@ -1,0 +1,290 @@
+[
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/drawable-v24_logo.png.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/drawable-v24/logo.png"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/font_greycliff.xml.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/font/greycliff.xml"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
+        "source": "/var/www/html/CapeeL/android/app/build/generated/res/pngs/debug/drawable-anydpi-v24/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/layout_activity_gagal.xml.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/layout/activity_gagal.xml"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/drawable-v24_dead.png.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/drawable-v24/dead.png"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/drawable_misc_rounded.xml.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/drawable/misc_rounded.xml"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/font_source_greycliff.ttf.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/font/source_greycliff.ttf"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/drawable_ui_card.xml.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/drawable/ui_card.xml"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/drawable-v24_info.png.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/drawable-v24/info.png"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/drawable-v24_me.png.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/drawable-v24/me.png"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/drawable-v24_pencil.png.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/drawable-v24/pencil.png"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/drawable_ui_card_vert_1.xml.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/drawable/ui_card_vert_1.xml"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/drawable-v24_settings.png.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/drawable-v24/settings.png"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/layout_activity_lapor_mati.xml.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/layout/activity_lapor_mati.xml"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/drawable-v24_checked.png.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/drawable-v24/checked.png"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/drawable_login_ball.xml.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/drawable/login_ball.xml"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/drawable-v24_baby_boy.png.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/drawable-v24/baby_boy.png"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/font_montserrat_extra_bold.ttf.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/font/montserrat_extra_bold.ttf"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/drawable_ic_home_black_24dp.xml.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/drawable/ic_home_black_24dp.xml"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/xml_backup_descriptor.xml.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/xml/backup_descriptor.xml"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/layout_activity_lapor_sukses.xml.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/layout/activity_lapor_sukses.xml"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/drawable_ic_launcher_background.xml.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/mipmap-xhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/drawable-v24_g16085.png.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/drawable-v24/g16085.png"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/layout_footer.xml.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/layout/footer.xml"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/drawable_ui_button_primary.xml.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/drawable/ui_button_primary.xml"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/drawable-v24_home.png.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/drawable-v24/home.png"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/drawable-v24_truck.png.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/drawable-v24/truck.png"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/drawable_round_image.xml.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/drawable/round_image.xml"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/drawable-v24_businessreport.png.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/drawable-v24/businessreport.png"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/drawable_ic_dashboard_black_24dp.xml.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/drawable/ic_dashboard_black_24dp.xml"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/drawable-v24_grimreaper.png.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/drawable-v24/grimreaper.png"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/drawable-v24_menu.png.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/drawable-v24/menu.png"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/drawable-v24_warning.png.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/drawable-v24/warning.png"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/drawable-v24_moving.jpg.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/drawable-v24/moving.jpg"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/drawable-v24_sibisa.png.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/drawable-v24/sibisa.png"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/drawable_ic_notifications_black_24dp.xml.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/drawable/ic_notifications_black_24dp.xml"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/drawable-v24_playstore.png.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/drawable-v24/playstore.png"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/layout_fragment_notifications.xml.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/layout/fragment_notifications.xml"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/font_nunito_bold.ttf.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/font/nunito_bold.ttf"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/layout_activity_main.xml.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/layout/activity_main.xml"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/drawable_circle.xml.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/drawable/circle.xml"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/drawable_header.xml.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/drawable/header.xml"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/layout_halaman_kosong.xml.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/layout/halaman_kosong.xml"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/drawable_ui_list_item.xml.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/drawable/ui_list_item.xml"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/menu_bottom_nav_menu.xml.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/menu/bottom_nav_menu.xml"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/drawable_ui_button_danger.xml.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/drawable/ui_button_danger.xml"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/layout_activity_lapor_lahir.xml.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/layout/activity_lapor_lahir.xml"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/drawable-v24_graveyard.jpg.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/drawable-v24/graveyard.jpg"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/mipmap-hdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/layout_activity_lapor_pindah.xml.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/layout/activity_lapor_pindah.xml"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/font_fa_solid_900.ttf.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/font/fa_solid_900.ttf"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/drawable_death_card.xml.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/drawable/death_card.xml"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/layout_fragment_dashboard.xml.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/layout/fragment_dashboard.xml"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/drawable-v24_birth.jpeg.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/drawable-v24/birth.jpeg"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/layout_activity_login.xml.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/layout/activity_login.xml"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/drawable_bottom_nav_selector.xml.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/drawable/bottom_nav_selector.xml"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/drawable-v24_cancel.png.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/drawable-v24/cancel.png"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/drawable_ui_edittext.xml.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/drawable/ui_edittext.xml"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/drawable_bottom_nav_background.xml.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/drawable/bottom_nav_background.xml"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/navigation_mobile_navigation.xml.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/navigation/mobile_navigation.xml"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/layout_fragment_home.xml.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/layout/fragment_home.xml"
+    },
+    {
+        "merged": "/var/www/html/CapeeL/android/app/build/intermediates/merged_res/debug/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "/var/www/html/CapeeL/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp"
+    }
+]

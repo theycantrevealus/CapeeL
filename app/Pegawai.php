@@ -208,10 +208,15 @@ class Pegawai extends Utility {
                 $user_arr_data = array(
                     'uid' => $read[0]['uid'],
                     'foto' => $read[0]['foto'],
+                    'id_jenis' => $read[0]['id_jenis'],
                     'password' => $read[0]['password'],
                     'email' => $read[0]['email'],
                     'nama' => $read[0]['nama'],
                     'no_handphone' => $read[0]['no_handphone'],
+                    'kecamatan' => $read[0]['id_kecamatan'],
+                    'kelurahan' => $read[0]['id_kelurahan'],
+                    'faskes' => $read[0]['id_faskes'],
+                    'lingkungan' => $read[0]['id_lingkungan'],
                     'log_id' => $log
                 );
 

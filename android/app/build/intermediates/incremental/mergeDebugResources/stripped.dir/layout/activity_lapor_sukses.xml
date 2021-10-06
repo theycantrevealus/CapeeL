@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:alpha=".4"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="330dp"
+            android:layout_marginEnd="-120dp"
+            android:background="@drawable/login_ball" />
+
+        <RelativeLayout
+            android:alpha=".4"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="-50dp"
+            android:layout_marginTop="-60dp"
+            android:background="@drawable/login_ball" />
+
+        <RelativeLayout
+            android:alpha=".4"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="60dp"
+            android:background="@drawable/login_ball" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/checked" />
+            <TextView
+                android:layout_marginTop="20dp"
+                android:textColor="@color/success"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_extra_bold"
+                android:textSize="30dp"
+                android:text="Berhasil Dilaporkan"
+                android:textAlignment="center" />
+
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                        android:layout_marginEnd="10dp"
+                        android:layout_width="wrap_content"
+                        android:textColor="@color/info"
+                        android:textSize="10pt"
+                        android:gravity="center"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/montserrat_extra_bold"
+                        android:text="kembali" />
+                    <TextView
+                        android:gravity="center"
+                        android:textColor="@color/info"
+                        android:textSize="10pt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/fa_solid_900"
+                        android:text="@string/forward" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
