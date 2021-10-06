@@ -33,7 +33,7 @@ abstract class Utility {
 	}
 
     public function generatePassword($length = 8) {
-        $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $count = mb_strlen($chars);
 
         for ($i = 0, $result = ''; $i < $length; $i++) {

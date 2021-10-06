@@ -328,7 +328,8 @@ class Pelaporan extends Utility {
             'id_kelurahan' => $UserData['data']->kelurahan,
             'id_lingkungan' => $UserData['data']->lingkungan,
             'id_faskes' => $UserData['data']->faskes,
-            'id_jenis' => $parameter['jenis']
+            'id_jenis' => $parameter['jenis'],
+            'kode' => parent::generatePassword(6)
         ))
             ->returning('id')
             ->execute();
