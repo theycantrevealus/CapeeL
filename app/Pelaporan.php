@@ -44,7 +44,7 @@ class Pelaporan extends Utility {
         $UserData = $Authorization->readBearerToken($parameter['access_token']);
 
         $data = self::$query->select('lapor', array(
-            'id', 'id_jenis', 'id_kecamatan', 'id_kelurahan'
+            'id', 'id_jenis', 'id_kecamatan', 'id_kelurahan', 'created_at'
         ))
             ->where(array(
                 'lapor.uid_pegawai' => '= ?',
@@ -54,9 +54,15 @@ class Pelaporan extends Utility {
                 $UserData['data']->uid
             ))
             ->execute();
+
+        $resultList = [];
         foreach($data['response_data'] as $key => $value) {
+
+            $resultItems = $value;
+
             if(intval($value['id_jenis']) === 1) {
-                $data['response_data'][$key]['nama_jenis'] = 'Laporan Kematian';
+                $resultItems['nama_jenis'] = 'Laporan Kematian';
+
                 $mati = self::$query->select('lapor_mati', array(
                     'nik', 'nama_lengkap', 'tempat_lahir', 'tanggal_lahir', 'tempat_meninggal', 'tanggal_meninggal', 'jam_meninggal', 'nama_keluarga', 'no_handphone_keluarga'
                 ))
@@ -66,9 +72,20 @@ class Pelaporan extends Utility {
                         $value['id']
                     ))
                     ->execute();
-                $data['response_data'][$key]['detail'] = $mati['response_data'];
+
+                $dataMati = $mati['response_data'];
+                if (count($dataMati) > 0) {
+                    $resultItems['nik'] = $dataMati[0]['nik'];
+                    $resultItems['nama'] = $dataMati[0]['nama_lengkap'];
+                    $resultItems['detail'] = $dataMati;
+
+                    $resultList[] = $resultItems; 
+                } 
+
+
             } else if(intval($value['id_jenis']) === 2) {
-                $data['response_data'][$key]['nama_jenis'] = 'Laporan Kelahiran';
+                $resultItems['nama_jenis'] = 'Laporan Kelahiran';
+
                 $lahir = self::$query->select('lapor_lahir', array(
                     'nik_ortu', 'nama_ortu', 'nama_anak', 'tanggal_lahir', 'tempat_lahir', 'alamat'
                 ))
@@ -78,9 +95,19 @@ class Pelaporan extends Utility {
                         $value['id']
                     ))
                     ->execute();
-                $data['response_data'][$key]['detail'] = $lahir['response_data'];
+                
+                $dataLahir = $lahir['response_data'];
+                if (count($dataLahir) > 0) {
+                    $resultItems['nik'] = $dataLahir[0]['nik_ortu'];
+                    $resultItems['nama'] = $dataLahir[0]['nama_ortu'];   
+                    $resultItems['detail'] = $dataLahir;
+
+                    $resultList[] = $resultItems; 
+                }
+
             } else if(intval($value['id_jenis']) === 3) {
-                $data['response_data'][$key]['nama_jenis'] = 'Laporan Pindah';
+                $resultItems['nama_jenis'] = 'Laporan Pindah';
+                
                 $pindah = self::$query->select('lapor_pindah', array(
                     'nik', 'nama', 'status_keluarga', 'jenis_pindah', 'alamat'
                 ))
@@ -90,10 +117,20 @@ class Pelaporan extends Utility {
                         $value['id']
                     ))
                     ->execute();
-                $data['response_data'][$key]['detail'] = $pindah['response_data'];
+                    
+                $dataPindah = $pindah['response_data'];
+                if (count($dataPindah) > 0) {
+                    $resultItems['nik'] = $dataPindah[0]['nik'];
+                    $resultItems['nama'] = $dataPindah[0]['nama'];
+                    $resultItems['detail'] = $dataPindah;
+
+                    $resultList[] = $resultItems; 
+                }
             }
         }
 
+        $data['response_result'] = count($resultList);
+        $data['response_data'] = $resultList;
 
         return $data;
     }
@@ -102,12 +139,12 @@ class Pelaporan extends Utility {
         $Authorization = new Authorization();
         $UserData = $Authorization->readBearerToken($parameter['access_token']);
 
-        $return_data = [
-            "response_result" => 0,
-            "response_message" => "Data gagal ditambah"
-        ];
+        // $return_data = [
+        //     "response_result" => 0,
+        //     "response_message" => "Data gagal ditambah"
+        // ];
 
-        return $return_data;
+        // return $return_data;
     
 
         $Lapor = self::$query->insert('lapor', array(
