@@ -485,10 +485,12 @@ class Pelaporan extends Utility {
             }
         }
 
-        return array(
+        return $Lapor;
+
+        /*return array(
             'response_result' => $Lapor['response_result'],
             'response_message' => $Lapor['response_message']
-        );
+        );*/
     }
 }
 
