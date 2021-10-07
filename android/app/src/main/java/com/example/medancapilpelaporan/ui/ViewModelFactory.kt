@@ -40,6 +40,10 @@ class ViewModelFactory private constructor(private val pelaporanRepository: Pela
                 instance = this
             }
         }
+
+        fun clearInstance() {
+            instance = null
+        }
     }
 
 

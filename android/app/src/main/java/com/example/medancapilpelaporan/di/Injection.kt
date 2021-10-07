@@ -10,8 +10,7 @@ import com.example.medancapilpelaporan.utils.general.SessionManager
 object Injection {
 
     fun provideRepository(application: Application): PelaporanRepository {
-        val token = GeneralUtils.getToken(application.applicationContext)
-        return PelaporanRepository.getInstance(ApiConfig.provideApiService(token), application)
+        return PelaporanRepository.getInstance(ApiConfig.provideApiService(application.applicationContext), application)
     }
 
 }

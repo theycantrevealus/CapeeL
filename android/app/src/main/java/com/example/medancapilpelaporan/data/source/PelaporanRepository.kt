@@ -22,6 +22,10 @@ class PelaporanRepository private constructor(private val apiService: ApiService
             INSTANCE = instance
             instance
         }
+
+        fun clearInstance() {
+            INSTANCE = null
+        }
     }
 
     suspend fun getHistory(): ArrayList<HistoryPelaporan>? {

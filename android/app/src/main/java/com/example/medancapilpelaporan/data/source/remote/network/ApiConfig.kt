@@ -1,5 +1,6 @@
 package com.example.medancapilpelaporan.data.source.remote.network
 
+import android.content.Context
 import com.example.medancapilpelaporan.Config
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -9,24 +10,20 @@ import java.util.concurrent.TimeUnit
 
 object ApiConfig {
 
-    private fun provideOkHttpClient(token: String): OkHttpClient {
+    private fun provideOkHttpClient(context: Context): OkHttpClient {
         return OkHttpClient.Builder()
             .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
-            .addInterceptor { chain ->
-                val newRequest = chain.request().newBuilder().addHeader("Authorization", "Bearer $token").build()
-                val response =  chain.proceed(newRequest)
-                response
-            }
+            .addInterceptor(AuthInterceptor(context))
             .connectTimeout(60, TimeUnit.SECONDS)
             .readTimeout(60, TimeUnit.SECONDS)
             .build()
     }
 
-    fun provideApiService(token: String): ApiService {
+    fun provideApiService(context: Context): ApiService {
         val retrofit = Retrofit.Builder()
             .baseUrl(Config.serverAPI)
             .addConverterFactory(GsonConverterFactory.create())
-            .client(provideOkHttpClient(token))
+            .client(provideOkHttpClient(context))
             .build()
         return retrofit.create(ApiService::class.java)
     }

@@ -12,6 +12,10 @@ import com.example.medancapilpelaporan.Config
 import com.example.medancapilpelaporan.MainActivity
 import com.example.medancapilpelaporan.R
 import com.example.medancapilpelaporan.databinding.ActivityLoginBinding
+import com.example.medancapilpelaporan.databinding.ProgressLayoutDarkBinding
+import com.example.medancapilpelaporan.di.Injection
+import com.example.medancapilpelaporan.ui.ViewModelFactory
+import com.example.medancapilpelaporan.utils.general.GeneralUtils
 import com.example.medancapilpelaporan.utils.general.InputUtils
 import com.example.medancapilpelaporan.utils.general.RetroInstance
 import com.example.medancapilpelaporan.utils.general.SessionManager
@@ -29,12 +33,15 @@ import retrofit2.http.POST
 class LoginActivity: AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
+    private lateinit var progressLayoutBinding: ProgressLayoutDarkBinding
     lateinit var sessionManager: SessionManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityLoginBinding.inflate(layoutInflater)
+        progressLayoutBinding = binding.progressLayout
+
         setContentView(binding.root)
         
         sessionManager = SessionManager(this)
@@ -51,10 +58,20 @@ class LoginActivity: AppCompatActivity() {
             when {
                 TextUtils.isEmpty(username) -> binding.txtUsername.error = InputUtils.FIELD_REQUIRED
                 else -> {
-                    login(username, password, "", this)
+                    login(username, password,  this)
                 }
             }
         })
+    }
+
+    fun showLoading(state: Boolean) {
+        if (state) {
+            progressLayoutBinding.progressLayoutDark.visibility = View.VISIBLE
+            binding.btnLogin.isEnabled = false
+        } else {
+            progressLayoutBinding.progressLayoutDark.visibility = View.GONE
+            binding.btnLogin.isEnabled = true
+        }
     }
 
     interface ApiInterface {
@@ -160,7 +177,9 @@ class LoginActivity: AppCompatActivity() {
         }
     }
 
-    private fun login(email: String, password: String, token: String?, context: Context) {
+    private fun login(email: String, password: String, context: Context) {
+        showLoading(true)
+
         var retIn: ApiInterface = RetroInstance.getRetrofitInstance(Config.serverAPI).create(
             ApiInterface::class.java
         )
@@ -169,6 +188,7 @@ class LoginActivity: AppCompatActivity() {
             override fun onFailure(call: Call<Login>, t: Throwable) {
                 val message: String? = t.message
                 Log.e("TANAKA", message.toString())
+                showLoading(false)
             }
 
             override fun onResponse(call: Call<Login>, response: Response<Login>) {
@@ -189,8 +209,8 @@ class LoginActivity: AppCompatActivity() {
 
                         if (!sessionManager.uID.equals("") || sessionManager.uID?.isEmpty()!!) {
                             val mIntent = Intent(context, MainActivity::class.java)
-                            startActivity(mIntent)
                             finish()
+                            startActivity(mIntent)
                         }
                     } else {
                         StyleableToast.makeText(context, dataset.getResponseMessage(), Toast.LENGTH_LONG, R.style.toast_warning).show();
@@ -200,6 +220,9 @@ class LoginActivity: AppCompatActivity() {
                 } else {
                     //
                 }
+
+                showLoading(false)
+
                 call.cancel()
             }
         })

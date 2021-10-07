@@ -30,6 +30,10 @@ class HistoryViewModel(private val pelaporanRepository: PelaporanRepository): Vi
         }
     }
 
+    fun resetHistory() {
+        _listPelaporan.postValue(ApiResponse.Success(arrayListOf()))
+    }
+
 
 
 }

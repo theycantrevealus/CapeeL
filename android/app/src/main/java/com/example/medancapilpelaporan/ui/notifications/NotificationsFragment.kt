@@ -10,12 +10,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.medancapilpelaporan.Config
 import com.example.medancapilpelaporan.R
+import com.example.medancapilpelaporan.data.source.PelaporanRepository
 import com.example.medancapilpelaporan.databinding.FragmentNotificationsBinding
+import com.example.medancapilpelaporan.ui.ViewModelFactory
+import com.example.medancapilpelaporan.ui.history.HistoryViewModel
 import com.example.medancapilpelaporan.ui.system.LoginActivity
 import com.example.medancapilpelaporan.utils.general.GeneralUtils
 import com.example.medancapilpelaporan.utils.general.InputUtils
@@ -65,8 +69,12 @@ class NotificationsFragment : Fragment() {
 
         binding.btnProfileLogout.setOnClickListener(View.OnClickListener {
             sessionManager.logout()
+            PelaporanRepository.clearInstance()
             val mIntent = Intent(context, LoginActivity::class.java)
             startActivity(mIntent)
+            //val historyViewModel = obtainHistoryViewModel(requireActivity() as AppCompatActivity)
+            //historyViewModel.resetHistory()
+
             activity?.finish()
         })
 
@@ -90,6 +98,11 @@ class NotificationsFragment : Fragment() {
         })
 
         return root
+    }
+
+    private fun obtainHistoryViewModel(activity: AppCompatActivity): HistoryViewModel {
+        val factory = ViewModelFactory.getInstance(activity.application)
+        return ViewModelProvider(activity, factory).get(HistoryViewModel::class.java)
     }
 
 
